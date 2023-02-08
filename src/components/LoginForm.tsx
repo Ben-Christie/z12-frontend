@@ -5,7 +5,7 @@ import ForgotPassword from "./ForgotPassword";
 import { getRouteByTitle } from "../utilities/app-routes";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { createUserLogin, verifyUserLogin } from "../utilities/requests";
+import { createUserLogin } from "../utilities/requests";
 import React, { useState } from "react";
 
 const LoginForm = () => {
