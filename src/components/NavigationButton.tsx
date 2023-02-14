@@ -23,7 +23,7 @@ function NavigationButton({page}: Props) {
         'text-xl',
         'cursor-pointer',
         { 'px-12': !['Login/Register', 'Logout'].includes(page.pageTitle) },
-        'hover:text-black',
+        'hover:text-orange-400',
         'hover:font-extrabold'
 
       )

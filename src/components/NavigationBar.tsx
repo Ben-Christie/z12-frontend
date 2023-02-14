@@ -13,7 +13,7 @@ function NavigationBar() {
   useEffect(() => {
     const path = location.pathname;
     if (path !== '/') {
-      if (['/login', '/register'].includes(path)) {
+      if (['/login', '/register', '/user-details'].includes(path)) {
         setCenterButtons([]);
         setRightSideButtons([]);
       } else {
@@ -34,10 +34,10 @@ function NavigationBar() {
       className="font-open-sans flex bg-z12-gray items-center h-10% grid-cols-3"
     >
       <div
-        id="left-side-logo"
+        id="company-name"
         className="w-1/4 mx-5 flex items-center justify-start"
       >
-        <div id="logo-placeholder" className="bg-white w-[60px] h-[60px]"></div>
+        <div id="logo-placeholder" className="text-xl text-orange-400 font-bold">Z12 Performance</div>
       </div>
 
       <div

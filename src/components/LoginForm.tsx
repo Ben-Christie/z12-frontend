@@ -5,7 +5,7 @@ import ForgotPassword from "./ForgotPassword";
 import { getRouteByTitle } from "../utilities/app-routes";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { createUserLogin } from "../utilities/requests";
+import { createUserLogin, verifyUserLogin } from "../utilities/requests";
 import React, { useState } from "react";
 
 const LoginForm = () => {
@@ -34,8 +34,6 @@ const LoginForm = () => {
       // call function to pass to database
       const response = await createUserLogin(email, password, confirmPassword);
 
-      console.log(response);
-
       // handle undefined state, ? allow safe execution if value is undefined or null
       if(response?.data?.emailIsValid === undefined || response?.data?.passwordIsValid === undefined || response?.data?.errorMessage === undefined) {
         console.error('Error: response from createUserLogin has an undefined value');
@@ -43,6 +41,8 @@ const LoginForm = () => {
         const emailIsValid = response?.data.emailIsValid;
         const passwordIsValid = response?.data.passwordIsValid;
         const errorMessage = response?.data.errorMessage;
+
+        console.log(emailIsValid, passwordIsValid, errorMessage)
 
         if(emailIsValid && passwordIsValid) {
           // navigate to /user-details route
@@ -55,8 +55,31 @@ const LoginForm = () => {
           setErrorMessage(errorMessage);
         }
       }
-    } 
+    } else {
+      const response = await verifyUserLogin(email, password);
+
+      if(response?.data?.userExists === undefined || response?.data?.passwordIsCorrect === undefined || response?.data?.errorMessage === undefined) {
+        console.error('Error: response from verifyUserLogin has an undefined value');
+      } else {
+        const userExists = response?.data.userExists;
+        const passwordIsCorrect = response?.data.passwordIsCorrect;
+        const errorMessage = response?.data.errorMessage;
+
+        if(userExists && passwordIsCorrect) {
+          // navigate to /user-details route
+          navigate(getRouteByTitle('My Dashboard').path)
+        } else if(!userExists) {
+          setEmailError(true);
+          setErrorMessage(errorMessage);
+        } else if(!passwordIsCorrect) {
+          setPasswordError(true);
+          setErrorMessage(errorMessage);
+        } 
+      }
+    }
   }
+
+  console.log(emailError, passwordError)
 
   return(
     <div className="flex justify-center items-center p-2 flex-col h-4/5 w-2/5 rounded-xl">

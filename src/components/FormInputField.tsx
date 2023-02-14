@@ -21,7 +21,7 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, contains
 
   return(
     <div className={classNames('flex', 'flex-col', 'px-10', paddingTop, paddingBottom)}>
-    <label className="text-lg font-bold mb-2">{title}</label>
+    <label className="text-lg font-bold mb-2 text-orange-400">{title}</label>
     {(isEmailError || isPasswordError) && <p className="mb-2 text-red-700 font-bold">*{errorMessage}*</p>}
     
     <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeHandler(event.currentTarget.value)} min={min} max={max} type={type} name={name} placeholder={placeholder} className={classNames(

@@ -7,7 +7,7 @@ function LandingContainer() {
     return (
       <div className="w-full h-full block px-5 pt-2 border-x-4">
         <div id="component-title" className="text-2xl text-bold pb-1 block text-center">
-          <div id='icon' className="flex justify-center text-5xl pb-2">{icon}</div>
+          <div id='icon' className="flex justify-center text-5xl pb-2 text-orange-400">{icon}</div>
           {title}
         </div>
         <div className="text-lg text-justify">
