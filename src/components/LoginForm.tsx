@@ -5,7 +5,8 @@ import ForgotPassword from "./ForgotPassword";
 import { getRouteByTitle } from "../utilities/app-routes";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { createUserLogin, verifyUserLogin } from "../utilities/requests";
+import CreateUserLogin from "../utilities/requests/CreateUserLogin";
+import VerifyUserLogin from "../utilities/requests/VerifyUserLogin";
 import React, { useState } from "react";
 
 const LoginForm = () => {
@@ -32,7 +33,7 @@ const LoginForm = () => {
     // if route doesn't = login i.e. = register 
     if(!isLogin) {
       // call function to pass to database
-      const response = await createUserLogin(email, password, confirmPassword);
+      const response = await CreateUserLogin(email, password, confirmPassword);
 
       // handle undefined state, ? allow safe execution if value is undefined or null
       if(response?.data?.emailIsValid === undefined || response?.data?.passwordIsValid === undefined || response?.data?.errorMessage === undefined) {
@@ -56,7 +57,7 @@ const LoginForm = () => {
         }
       }
     } else {
-      const response = await verifyUserLogin(email, password);
+      const response = await VerifyUserLogin(email, password);
 
       if(response?.data?.userExists === undefined || response?.data?.passwordIsCorrect === undefined || response?.data?.errorMessage === undefined) {
         console.error('Error: response from verifyUserLogin has an undefined value');
