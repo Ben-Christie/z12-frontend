@@ -2,7 +2,7 @@ import { useState } from "react";
 import FormDropdown from "./FormDropdown";
 import SubmitButton from "./SubmitButton";
 import FormInputField from "./FormInputField";
-import { updateUserDetails } from "../utilities/requests";
+import AddCoreDetails from "../utilities/requests/AddCoreDetails";
 
 const CoreDetailsForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -15,7 +15,10 @@ const CoreDetailsForm = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    updateUserDetails('first_name', firstName, 'last_name', lastName, 'date_of_birth', dateOfBirth, 'gender', gender, 'phone_number', phoneNumber, 'athlete_or_coach', athleteOrCoach);
+
+    const response = await AddCoreDetails(firstName, lastName, dateOfBirth, gender, phoneNumber, athleteOrCoach);
+
+    console.log(response);
   }
 
 
