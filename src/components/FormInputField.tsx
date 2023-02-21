@@ -6,7 +6,7 @@ interface Props {
   type: string;
   name: string;
   changeHandler: React.Dispatch<React.SetStateAction<string>>;
-  containsError?: boolean;
+  culprit?: string;
   errorMessage?: string;
   min?: number;
   max?: number;
@@ -15,23 +15,34 @@ interface Props {
 
 }
 
-const FormInputField = ({title, placeholder, type, name, changeHandler, containsError, errorMessage, min, max, paddingTop, paddingBottom}:Props) => {
-  const isEmailError = (containsError && errorMessage?.toLowerCase().includes('email') && type === 'email')
-  const isPasswordError = (containsError && errorMessage?.toLowerCase().includes('password') && type === 'password')
+const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom}:Props) => {
+  // error identification
+  const isEmailError = culprit === 'email' && name === 'email';
+  const isPasswordError = culprit === 'password' && name === 'password';
+  const isFirstNameError = culprit === 'firstName' && name === 'firstname';
+  const isLastNameError = culprit === 'lastName' && name === 'lastname';
+  const isPhoneNumberError = culprit === 'phoneNumber' && name === 'phonenumber';
+
+  const errorExists = isEmailError || isPasswordError || isFirstNameError || isLastNameError || isPhoneNumberError;
+
+  const culpritExists = culprit !== undefined || culprit !== '';
 
   return(
     <div className={classNames('flex', 'flex-col', 'px-10', paddingTop, paddingBottom)}>
-    <label className="text-lg font-bold mb-2 text-orange-400">{title}</label>
-    {(isEmailError || isPasswordError) && <p className="mb-2 text-red-700 font-bold">*{errorMessage}*</p>}
+    <div className="flex">
+      <label className="text-lg font-bold mb-2 text-orange-400 pr-3">{title}</label>
+      {errorExists && <p className="mb-2 text-red-700 font-bold">*{errorMessage}*</p>}
+    </div>
     
     <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeHandler(event.currentTarget.value)} min={min} max={max} type={type} name={name} placeholder={placeholder} className={classNames(
       'p-2', 
       'rounded-lg', 
-      'text-lg', 
+      'text-lg',
+      'font-bold',
       'focus:outline-none', 
-      {'focus:outline-orange-500' : !containsError},
-      {'border-2' : containsError},
-      {'border-red-700' : containsError && ((type === 'password' && isPasswordError) || (type === 'email' && isEmailError))},
+      'focus:outline-orange-500',
+      'border-2',
+      {'focus:outline-red-700' : culpritExists && errorExists},
     )} />
   </div>
   )

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import CreateUserLogin from "../utilities/requests/CreateUserLogin";
 import VerifyUserLogin from "../utilities/requests/VerifyUserLogin";
 import React, { useState } from "react";
+import AllValuesDefined from "../utilities/AllValuesDefined";
 
 const LoginForm = () => {
   const location = useLocation();
@@ -20,8 +21,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [culprit, setCulprit] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   
   const navigate = useNavigate()
@@ -36,51 +36,51 @@ const LoginForm = () => {
       const response = await CreateUserLogin(email, password, confirmPassword);
 
       // handle undefined state, ? allow safe execution if value is undefined or null
-      if(response?.data?.emailIsValid === undefined || response?.data?.passwordIsValid === undefined || response?.data?.errorMessage === undefined) {
-        console.error('Error: response from createUserLogin has an undefined value');
+      if(!AllValuesDefined(response?.data)) {
+        console.error('Error: response from function CreateUserLogin has an undefined value');
       } else {
-        const emailIsValid = response?.data.emailIsValid;
-        const passwordIsValid = response?.data.passwordIsValid;
-        const errorMessage = response?.data.errorMessage;
+        const res = response?.data;
 
-        console.log(emailIsValid, passwordIsValid, errorMessage)
+        const emailIsValid = res.emailIsValid;
+        const passwordIsValid = res.passwordIsValid;
+        const errorMessage = res.errorMessage;
 
         if(emailIsValid && passwordIsValid) {
           // navigate to /user-details route
           navigate(getRouteByTitle('User Details').path)
         } else if(!emailIsValid) {
-          setEmailError(true);
+          setCulprit('email');
           setErrorMessage(errorMessage);
         } else if(!passwordIsValid) {
-          setPasswordError(true);
+          setCulprit('password');
           setErrorMessage(errorMessage);
         }
       }
     } else {
       const response = await VerifyUserLogin(email, password);
 
-      if(response?.data?.userExists === undefined || response?.data?.passwordIsCorrect === undefined || response?.data?.errorMessage === undefined) {
-        console.error('Error: response from verifyUserLogin has an undefined value');
+      if(!AllValuesDefined(response?.data)) {
+        console.error('Error: response from function VerifyUserLogin has an undefined value');
       } else {
-        const userExists = response?.data.userExists;
-        const passwordIsCorrect = response?.data.passwordIsCorrect;
-        const errorMessage = response?.data.errorMessage;
+        const res = response?.data;
+
+        const userExists = res.userExists;
+        const passwordIsCorrect = res.passwordIsCorrect;
+        const errorMessage = res.errorMessage;
 
         if(userExists && passwordIsCorrect) {
           // navigate to /user-details route
           navigate(getRouteByTitle('My Dashboard').path)
         } else if(!userExists) {
-          setEmailError(true);
+          setCulprit('email');
           setErrorMessage(errorMessage);
         } else if(!passwordIsCorrect) {
-          setPasswordError(true);
+          setCulprit('password');
           setErrorMessage(errorMessage);
         } 
       }
     }
   }
-
-  console.log(emailError, passwordError)
 
   return(
     <div className="flex justify-center items-center p-2 flex-col h-4/5 w-2/5 rounded-xl">
@@ -88,9 +88,9 @@ const LoginForm = () => {
 
       <form onSubmit={handleSubmit} className="bg-z12-gray w-full h-5/6 opacity-80 pb-5 px-10 rounded-b-xl flex flex-col justify-center">
 
-        <FormInputField changeHandler={setEmail} type="email" name="email" title="Email Address" containsError={emailError} errorMessage={errorMessage} paddingTop="pt-5" />
+        <FormInputField changeHandler={setEmail} type="email" name="email" title="Email Address" culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" />
 
-        <FormInputField changeHandler={setPassword} type="password" name="password" title="Password" containsError={passwordError} errorMessage={errorMessage} paddingTop="pt-5" />
+        <FormInputField changeHandler={setPassword} type="password" name="password" title="Password" culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" />
 
         {location.pathname === '/register' && <FormInputField changeHandler={setConfirmPassword} type='password' name='confirm-password' title='Confirm Password' paddingTop="pt-5" />}
 
