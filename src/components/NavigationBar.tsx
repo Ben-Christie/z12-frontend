@@ -13,7 +13,7 @@ function NavigationBar() {
   useEffect(() => {
     const path = location.pathname;
     if (path !== '/') {
-      if (['/login', '/register', '/user-details'].includes(path)) {
+      if (['/login', '/register', '/user-details', '/athlete-details', '/payments'].includes(path)) {
         setCenterButtons([]);
         setRightSideButtons([]);
       } else {

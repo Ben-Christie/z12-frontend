@@ -40,9 +40,9 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, culprit,
       'text-lg',
       'font-bold',
       'focus:outline-none', 
-      'focus:outline-orange-500',
+      'focus:border-orange-500',
       'border-2',
-      {'focus:outline-red-700' : culpritExists && errorExists},
+      {'focus:border-red-700' : culpritExists && errorExists},
     )} />
   </div>
   )

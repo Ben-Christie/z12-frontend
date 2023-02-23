@@ -69,7 +69,7 @@ const LoginForm = () => {
         const errorMessage = res.errorMessage;
 
         if(userExists && passwordIsCorrect) {
-          // navigate to /user-details route
+          // navigate to /my-dashboard route
           navigate(getRouteByTitle('My Dashboard').path)
         } else if(!userExists) {
           setCulprit('email');

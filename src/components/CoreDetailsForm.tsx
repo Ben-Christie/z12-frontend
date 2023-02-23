@@ -1,36 +1,72 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getRouteByTitle } from "../utilities/app-routes";
 import FormDropdown from "./FormDropdown";
 import DateOfBirthDropdown from "./DateOfBirthDropdown";
 import SubmitButton from "./SubmitButton";
 import FormInputField from "./FormInputField";
 import AddCoreDetails from "../utilities/requests/AddCoreDetails";
 import AllValuesDefined from "../utilities/AllValuesDefined";
+import { Option } from "./FormMultiselectDropdown";
 
 const CoreDetailsForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
-  const [gender, setGender] = useState('Male');
+  const [gender, setGender] = useState<Option>({value: 'male', label: 'Male'});
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [athleteOrCoach, setAthleteOrCoach] = useState('Athlete');
+  const [athleteOrCoach, setAthleteOrCoach] = useState<Option>({value: 'athlete', label: 'Athlete'});
   const [culprit, setCulprit] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // data for dropdowns
+  const genderOptions: Option[] = [
+    {value: 'male', label: 'Male'},
+    {value: 'female', label: 'Female'}
+  ];
+
+  const userTypeOptions: Option[] = [
+    {value: 'athlete', label: 'Athlete'},
+    {value: 'coach', label: 'Coach'},
+    {value: 'both', label: 'Both'}
+  ];
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const response = await AddCoreDetails(firstName, lastName, dateOfBirth, gender, phoneNumber, athleteOrCoach);
+    const response = await AddCoreDetails(firstName, lastName, dateOfBirth, gender.label, phoneNumber, athleteOrCoach.label);
 
     if(!AllValuesDefined(response?.data)) {
       console.error('Error: response from function AddCoreDetails has undefined value');
     } else {
       const responseData = response?.data;
 
+      const isAthlete = responseData.isAthlete;
+
+      console.log(isAthlete, responseData.isAthlete);
+
       setCulprit(responseData.culprit);
       setErrorMessage(responseData.errorMessage);
+
+      const noError = culprit === '' && errorMessage === '';
+
+      if(noError && isAthlete) {
+        // navigate to /athlete-details
+        navigate(getRouteByTitle('Athlete Details').path)
+      } else if(noError && !isAthlete) {
+        // navigate to /payments
+        navigate(getRouteByTitle('Payments').path)
+      } else {
+        console.error('Unable to navigate from component: CoreDetailsForm');
+      }
     }
   }
+
+  const handleGenderSelect = (newValue: Option, actionMeta: any) => {
+    setGender(newValue)
+  };
 
 
   return (
@@ -44,11 +80,11 @@ const CoreDetailsForm = () => {
 
         <DateOfBirthDropdown title="Date of Birth" changeHandler={setDateOfBirth} paddingTop="pt-5" />
 
-        <FormDropdown title="Gender" options={['Male', 'Female']} value={gender} changeHandler={setGender} paddingTop="pt-5" />
+        <FormDropdown title="Gender" options={genderOptions} placeholder="Select gender..." changeHandler={handleGenderSelect} paddingTop="pt-5" />
 
         <FormInputField title="Phone Number" name="phonenumber" type="text" changeHandler={setPhoneNumber} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" paddingBottom="pb-5" />
 
-        <FormDropdown title="Athlete or Coach?" options={['Athlete', 'Coach', 'Both']} value={athleteOrCoach} changeHandler={setAthleteOrCoach} paddingTop="pt-5" paddingBottom="pb-5" />
+        <FormDropdown title="Athlete or Coach?" options={userTypeOptions} placeholder="Select user type..." changeHandler={setAthleteOrCoach} paddingTop="pt-5" paddingBottom="pb-5" />
       </div>
 
       <SubmitButton title="Next" />

@@ -21,6 +21,14 @@ const AppRoutes: Page[] = [
     path: '/user-details',
   },
   {
+    pageTitle: 'Athlete Details',
+    path: '/athlete-details',
+  },
+  {
+    pageTitle: 'Payments',
+    path: '/payments',
+  },
+  {
     pageTitle: 'My Dashboard',
     path: '/my-dashboard'
   },
