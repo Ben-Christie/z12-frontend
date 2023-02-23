@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { Option } from '../../components/FormMultiselectDropdown';
 
 const AddCoreDetails = async (firstName: string, lastName: string, dateOfBirth: string, gender: string, phoneNumber: string, athleteOrCoach: string): Promise<AxiosResponse | undefined > => {
 
