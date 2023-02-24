@@ -25,16 +25,16 @@ const AppRoutes: Page[] = [
     path: '/athlete-details',
   },
   {
+    pageTitle: 'Personal Bests',
+    path: '/personal-bests',
+  },
+  {
     pageTitle: 'Payments',
     path: '/payments',
   },
   {
     pageTitle: 'My Dashboard',
     path: '/my-dashboard'
-  },
-  {
-    pageTitle: 'Events',
-    path: '/events'
   },
   {
     pageTitle: 'Contact Us',
@@ -58,7 +58,7 @@ export const getRouteByTitle = (title: string): Page => {
   if(route) {
     return route;
   } else {
-    console.log('Error: {route} route not found');
+    console.error(`Error: ${route} route not found`);
 
     return getRouteByTitle('Landing Page')
   }

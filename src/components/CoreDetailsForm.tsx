@@ -45,8 +45,6 @@ const CoreDetailsForm = () => {
 
       const isAthlete = responseData.isAthlete;
 
-      console.log(isAthlete, responseData.isAthlete);
-
       setCulprit(responseData.culprit);
       setErrorMessage(responseData.errorMessage);
 
@@ -80,11 +78,11 @@ const CoreDetailsForm = () => {
 
         <DateOfBirthDropdown title="Date of Birth" changeHandler={setDateOfBirth} paddingTop="pt-5" />
 
-        <FormDropdown title="Gender" options={genderOptions} placeholder="Select gender..." changeHandler={handleGenderSelect} paddingTop="pt-5" />
+        <FormDropdown title="Gender" options={genderOptions} placeholder="Select gender..." changeHandler={handleGenderSelect} paddingTop="pt-5" name="gender" />
 
         <FormInputField title="Phone Number" name="phonenumber" type="text" changeHandler={setPhoneNumber} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" paddingBottom="pb-5" />
 
-        <FormDropdown title="Athlete or Coach?" options={userTypeOptions} placeholder="Select user type..." changeHandler={setAthleteOrCoach} paddingTop="pt-5" paddingBottom="pb-5" />
+        <FormDropdown title="Athlete or Coach?" options={userTypeOptions} placeholder="Select user type..." changeHandler={setAthleteOrCoach} paddingTop="pt-5" paddingBottom="pb-5" name="athleteorcoach" />
       </div>
 
       <SubmitButton title="Next" />

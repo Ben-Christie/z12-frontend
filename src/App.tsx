@@ -7,6 +7,7 @@ import UserDetailsPage from './routes/UserDetailsPage';
 import AthleteDetailsPage from './routes/AthleteDetailsPage';
 import PaymentsPage from './routes/PaymentsPage';
 import MyDashboardPage from './routes/MyDashboardPage';
+import PersonalBestsPage from './routes/PersonalBestsPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='athlete-details' element={<AthleteDetailsPage />} />
         <Route path='payments' element={<PaymentsPage />} />
         <Route path='my-dashboard' element={<MyDashboardPage />} />
+        <Route path="personal-bests" element={<PersonalBestsPage />} />
       </Routes>
     </AppWrapper>
   );
