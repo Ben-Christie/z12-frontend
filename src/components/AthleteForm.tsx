@@ -52,6 +52,18 @@ const AthleteForm = () => {
 
   const navigate = useNavigate();
 
+  const handleSelectedClubsChange = (newValue: Option[], actionMeta: any) => {
+    setSelectedClubs(newValue);
+  };
+  
+  const handleSelectedCoachesChange = (newValue: Option[], actionMeta: any) => {
+    setSelectedCoaches(newValue);
+  };
+  
+  const handleRaceCategorySelect = (newValue: Option, actionMeta: any) => {
+    setRaceCategory(newValue)
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -71,27 +83,26 @@ const AthleteForm = () => {
 
     if(!AllValuesDefined(response?.data)) {
       console.error('Error: response from function AddCoreDetails has undefined value');
+    } else {
+      const responseData = response?.data;
+
+      setErrorMessage(responseData.errorMessage);
+      setCulprit(responseData.culprit);
+
+      console.log(responseData.errorMessage);
+
+      if(responseData.errorMessage === '' && responseData.culprit === '') {
+        navigate(getRouteByTitle('Personal Bests').path);
+      }
     }
   }
-
-  const handleSelectedClubsChange = (newValue: Option[], actionMeta: any) => {
-    setSelectedClubs(newValue);
-  };
-
-  const handleSelectedCoachesChange = (newValue: Option[], actionMeta: any) => {
-    setSelectedCoaches(newValue);
-  };
-
-  const handleRaceCategorySelect = (newValue: Option, actionMeta: any) => {
-    setRaceCategory(newValue)
-  };
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-3/6 rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">Athlete Details</div>
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
         
-        <FormDropdown title="Race Category" options={raceCategoryOptions} changeHandler={handleRaceCategorySelect} placeholder="Select race category..." paddingTop="pt-5"/>
+        <FormDropdown title="Race Category" options={raceCategoryOptions} changeHandler={handleRaceCategorySelect} placeholder="Select race category..." paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} name="racecategory" />
 
         <FormInputField title="Height (cm)" name="height" type="text" changeHandler={setHeight} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" min={0} />
 

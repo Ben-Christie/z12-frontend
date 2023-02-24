@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 import { Option } from '../../components/FormMultiselectDropdown';
 
 export const getRowingClubNames = async () => {
@@ -41,8 +41,6 @@ export const getRowingCoaches = async () => {
   try {
     const coachNamesArray = await axios.get('http://localhost:8000/get-data/coach-names/')
     const coachNames: Option[] = [];
-
-    console.log(coachNamesArray.data);
 
     for(let i = 0; i < coachNamesArray.data.length; i++) {
       const name = coachNamesArray.data[i]

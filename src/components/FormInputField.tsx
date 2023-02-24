@@ -22,8 +22,11 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, culprit,
   const isFirstNameError = culprit === 'firstName' && name === 'firstname';
   const isLastNameError = culprit === 'lastName' && name === 'lastname';
   const isPhoneNumberError = culprit === 'phoneNumber' && name === 'phonenumber';
+  const isHeightError = culprit === 'height' && name === 'height';
+  const isWeightError = culprit === 'weight' && name === 'weight';
+  const isWingspanError = culprit === 'wingspan' && name === 'wingspan';
 
-  const errorExists = isEmailError || isPasswordError || isFirstNameError || isLastNameError || isPhoneNumberError;
+  const errorExists = isEmailError || isPasswordError || isFirstNameError || isLastNameError || isPhoneNumberError || isHeightError || isWeightError || isWingspanError;
 
   const culpritExists = culprit !== undefined || culprit !== '';
 
