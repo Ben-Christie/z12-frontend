@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRouteByTitle } from "../utilities/app-routes";
-import FormDropdown from "./FormDropdown";
-import DateOfBirthDropdown from "./DateOfBirthDropdown";
 import SubmitButton from "./SubmitButton";
-import FormInputField from "./FormInputField";
-import AddCoreDetails from "../utilities/requests/AddCoreDetails";
 import AllValuesDefined from "../utilities/AllValuesDefined";
-import { Option } from "./FormMultiselectDropdown";
 import TimeInputField from "./TimeInputField";
 import NavigatorButton from "./NavigatorButton";
 import AddPersonalBests from "../utilities/requests/AddPersonalBests";
