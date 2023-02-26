@@ -10,7 +10,7 @@ interface Props {
 }
 
 
-function NavigationButton({page}: Props) {
+function NavigationBarOption({page}: Props) {
   const navigate = useNavigate();
 
   return (
@@ -34,4 +34,4 @@ function NavigationButton({page}: Props) {
   );
 }
 
-export default NavigationButton;
+export default NavigationBarOption;

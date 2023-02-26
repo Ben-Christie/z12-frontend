@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import NavigationButton from './NavigationButton';
+import NavigationBarOption from './NavigationBarOption';
 import { getRouteByTitle, Page } from '../utilities/app-routes';
 
 function NavigationBar() {
@@ -13,7 +13,7 @@ function NavigationBar() {
   useEffect(() => {
     const path = location.pathname;
     if (path !== '/') {
-      if (['/login', '/register', '/user-details', '/athlete-details', '/payments'].includes(path)) {
+      if (['/login', '/register', '/user-details', '/athlete-details', '/personal-bests', '/payments'].includes(path)) {
         setCenterButtons([]);
         setRightSideButtons([]);
       } else {
@@ -45,7 +45,7 @@ function NavigationBar() {
         className="w-2/4 flex justify-center items-center"
       >
         {centerButtons.map((page, index) => {
-          return <NavigationButton key={index} page={page} />;
+          return <NavigationBarOption key={index} page={page} />;
         })}
       </div>
 
@@ -54,7 +54,7 @@ function NavigationBar() {
         className="w-1/4 mx-5 flex items-center justify-end"
       >
         {rightSideButtons.map((page, index) => {
-          return <NavigationButton key={index} page={page} />;
+          return <NavigationBarOption key={index} page={page} />;
         })}
       </div>
     </div>

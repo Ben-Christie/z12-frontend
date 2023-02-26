@@ -13,6 +13,13 @@ module.exports = {
         '10%': '10vh',
         '90%': '90vh',
       },
+      width: {
+        '35%': '35vw',
+        '45%': '45vw',
+        '55%': '55vw',
+        '60%': '60vw',
+        '65%': '65vw',
+      },
       boxShadow: {
         standard: '0 5px 30px -5px rgba(0, 0, 0, 0.6)',
         shallow: '0 5px 10px -5px rgba(0, 0, 0, 0.6)',

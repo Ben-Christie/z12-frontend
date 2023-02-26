@@ -70,6 +70,7 @@ const CoreDetailsForm = () => {
   return (
     <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-3/6 rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">My Details</div>
+      
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
         
         <FormInputField title="First Name" name="firstname" type="text" changeHandler={setFirstName} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" />
@@ -85,7 +86,7 @@ const CoreDetailsForm = () => {
         <FormDropdown title="Athlete or Coach?" options={userTypeOptions} placeholder="Select user type..." changeHandler={setAthleteOrCoach} paddingTop="pt-5" paddingBottom="pb-5" name="athleteorcoach" />
       </div>
 
-      <SubmitButton title="Next" />
+      <SubmitButton title="Submit" />
     </form>
   )
 }

@@ -5,15 +5,16 @@ interface Props {
   textColor?: string;
   bgColor?: string;
   hoverBgColor?: string;
+  buttonWidth?: string;
 }
 
-const SubmitButton = ({title, textColor = 'text-white', bgColor = 'bg-black', hoverBgColor = 'hover:bg-orange-400'}:Props) => {
+const SubmitButton = ({title, textColor = 'text-white', bgColor = 'bg-black', hoverBgColor = 'hover:bg-orange-400', buttonWidth = 'w-1/4'}:Props) => {
   return (
     <input type="submit" value={title} className={
       classNames(
         'mx-auto', 
         'my-auto', 
-        'w-1/4', 
+        `${buttonWidth}`, 
         'px-4', 
         'py-2', 
         'text-lg', 

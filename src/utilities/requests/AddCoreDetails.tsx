@@ -16,7 +16,7 @@ const AddCoreDetails = async (firstName: string, lastName: string, dateOfBirth: 
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/login-register/core-details/', 
+      'http://localhost:8000/add-user-details/core-details/', 
       data, 
       {
         headers: {

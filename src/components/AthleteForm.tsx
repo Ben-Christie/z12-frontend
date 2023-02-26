@@ -9,6 +9,7 @@ import FormMultiselectDropdown from "./FormMultiselectDropdown";
 import { Option } from "./FormMultiselectDropdown";
 import AddAthleteDetails from "../utilities/requests/AddAthleteDetails";
 import { getRowingClubNames, getRaceCategories, getRowingCoaches } from "../utilities/requests/GetAthleteDropdownData";
+import NavigatorButton from "./NavigatorButton";
 
 const AthleteForm = () => {
   const [selectedClubs, setSelectedClubs] = useState<Option[]>([]);
@@ -100,6 +101,7 @@ const AthleteForm = () => {
   return (
     <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-3/6 rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">Athlete Details</div>
+      
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
         
         <FormDropdown title="Race Category" options={raceCategoryOptions} changeHandler={handleRaceCategorySelect} placeholder="Select race category..." paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} name="racecategory" />
@@ -115,7 +117,10 @@ const AthleteForm = () => {
         <FormInputField title="Wingspan (cm)" name="wingspan" type="text" changeHandler={setWingspan} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" paddingBottom="pb-5" min={0} />
       </div>
 
-      <SubmitButton title="Next" />
+      <div className="flex mt-28 w-35%">
+        <SubmitButton title="Submit" buttonWidth="w-2/5" />
+        <NavigatorButton title="Skip" buttonWidth="w-2/5" textColor="text-black" bgColor="bg-white" hoverBgColor="hover:bg-orange-400" navigateTo="Personal Bests" />
+      </div>
     </form>
   )
 }
