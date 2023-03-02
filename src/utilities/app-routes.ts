@@ -21,6 +21,10 @@ const AppRoutes: Page[] = [
     path: '/user-details',
   },
   {
+    pageTitle: 'Profile Picture',
+    path: '/profile-picture',
+  },
+  {
     pageTitle: 'Athlete Details',
     path: '/athlete-details',
   },

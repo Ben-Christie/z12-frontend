@@ -52,7 +52,7 @@ const CoreDetailsForm = () => {
 
       if(noError && isAthlete) {
         // navigate to /athlete-details
-        navigate(getRouteByTitle('Athlete Details').path)
+        navigate(getRouteByTitle('Profile Picture').path)
       } else if(noError && !isAthlete) {
         // navigate to /payments
         navigate(getRouteByTitle('Payments').path)
