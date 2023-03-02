@@ -23,8 +23,7 @@ const PaymentsForm = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    console.log(cardHolderName, cardNumber, expiryDate, cvv, fee)
+    
     const response = await Payments(cardHolderName, cardNumber, expiryDate, cvv, fee)
 
     if(!AllValuesDefined(response?.data)) {
@@ -33,8 +32,6 @@ const PaymentsForm = () => {
       const data = response?.data;
       setErrorMessage(data.errorMessage);
       setCulprit(data.culprit);
-
-      console.log(response?.data)
 
       if(response?.data.errorMessage === '' && response?.data.culprit === '') {
         navigate(getRouteByTitle('My Dashboard').path);

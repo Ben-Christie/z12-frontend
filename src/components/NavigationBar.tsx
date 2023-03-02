@@ -13,11 +13,11 @@ function NavigationBar() {
   useEffect(() => {
     const path = location.pathname;
     if (path !== '/') {
-      if (['/login', '/register', '/user-details', '/athlete-details', '/personal-bests', '/payments'].includes(path)) {
+      if (['/login', '/register', '/user-details', '/profile-picture', '/athlete-details', '/personal-bests', '/payments'].includes(path)) {
         setCenterButtons([]);
         setRightSideButtons([]);
       } else {
-        setCenterButtons([getRouteByTitle('My Dashboard'), getRouteByTitle('Events'), getRouteByTitle('Contact Us')]);
+        setCenterButtons([getRouteByTitle('My Dashboard'), getRouteByTitle('Contact Us')]);
         setRightSideButtons([getRouteByTitle('Logout')]);
       }
     } else {

@@ -8,6 +8,7 @@ import AthleteDetailsPage from './routes/AthleteDetailsPage';
 import PaymentsPage from './routes/PaymentsPage';
 import MyDashboardPage from './routes/MyDashboardPage';
 import PersonalBestsPage from './routes/PersonalBestsPage';
+import ProfilePicturePage from './routes/ProfilePicturePage';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='login' element={<LoginRegisterPage />} />
         <Route path='register' element={<LoginRegisterPage />} />
         <Route path='user-details' element={<UserDetailsPage />} />
+        <Route path='profile-picture' element={<ProfilePicturePage />} />
         <Route path='athlete-details' element={<AthleteDetailsPage />} />
         <Route path='payments' element={<PaymentsPage />} />
         <Route path='my-dashboard' element={<MyDashboardPage />} />
