@@ -12,14 +12,36 @@ interface Props {
 
 const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
   const navigate = useNavigate()
+
+  const setChartState = (chart: string) => {
+    switch (chart) {
+      case 'erg':
+        setOpenErgAnalysis(true);
+        setOpenRatingAnalysis(false);
+        setOpenSAndCAnalysis(false);
+        break;
+      case 'rating':
+        setOpenErgAnalysis(false);
+        setOpenRatingAnalysis(true);
+        setOpenSAndCAnalysis(false);
+        break;
+      case 'sAndC':
+        setOpenErgAnalysis(false);
+        setOpenRatingAnalysis(false);
+        setOpenSAndCAnalysis(true);
+        break;
+    }
+  }
   
-  const generateChartTab = (title: string, marginR?: string) => {
+  const generateChartTab = (title: string, openChart: string, marginR?: string) => {
     return (
-      <button type="button" className={classNames('border-2', 'py-1', 'px-4', 'text-lg', 'rounded-lg', 'text-white', 'font-semibold', 'transition-all', 'duration-200', 'ease-in-out', 'transform', 'hover:scale-110', 'hover:bg-orange-400', `${marginR}`, 'active:bg-orange-400')}>{title}
+      <button type="button" onClick={() => setChartState(openChart)} className={classNames('border-2', 'py-1', 'px-4', 'text-lg', 'rounded-lg', 'text-white', 'font-semibold', 'transition-all', 'duration-200', 'ease-in-out', 'transform', 'hover:scale-110', 'hover:bg-orange-400', `${marginR}`, 'focus:bg-orange-400')}>{title}
       </button>
     )
   }
 
+  const [openErgAnalysis, setOpenErgAnalysis] = useState<boolean>(true);
+  const [openRatingAnalysis, setOpenRatingAnalysis] = useState<boolean>(false);
   const [openSAndCAnalysis, setOpenSAndCAnalysis] = useState<boolean>(false);
   
   return (
@@ -27,9 +49,9 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
       
       <div className="mb-1 grid grid-cols-12">
         <div className="col-span-11 flex items-center">
-          {generateChartTab('Erg Analysis', 'mr-3')}
-          {generateChartTab('Rating Analysis', 'mr-3')}
-          {generateChartTab('S&C Analysis')}
+          {generateChartTab('Erg Analysis', 'erg', 'mr-3')}
+          {generateChartTab('Rating Analysis', 'rating', 'mr-3')}
+          {generateChartTab('S&C Analysis', 'sAndC')}
         </div>
 
         <div className="text-3xl flex justify-center items-center transition-all duration-200 ease-in-out transform hover:scale-110 hover:text-orange-400 cursor-pointer text-white">
@@ -37,7 +59,9 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
         </div>
       </div>
 
-      <SandCAnalysis />
+      {openErgAnalysis && <ErgAnalysis />}
+      {openRatingAnalysis && <RatingAnalysis />}
+      {openSAndCAnalysis && <SandCAnalysis />}
       
     </div>
   )

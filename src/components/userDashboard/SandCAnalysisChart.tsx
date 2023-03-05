@@ -12,15 +12,15 @@ const data = [
 
 const SandCAnalysis = () => {
   return (
-    <div className="border-white border-2 rounded-lg row-span-5 w-full grid grid-cols-12">
-      <div className="border-white border-r-2 col-span-2 grid grid-rows-5">
+    <div className="border-white border-2 rounded-lg row-span-5 w-full grid grid-cols-12 grid-rows-6">
+      <div className="border-white border-r-2 col-span-2 row-span-6 grid grid-rows-6">
         {generateMetricSelectorButton('Bench Press')}
         {generateMetricSelectorButton('Bicep Curls')}
         {generateMetricSelectorButton('Deadlift')}
         {generateMetricSelectorButton('Squats')}
       </div>
 
-      <div className=" col-span-10">
+      <div className=" col-span-10 row-span-6">
         <ResponsiveContainer width="100%" height="95%">
           <ScatterChart
             margin={{top: 20, right: 20, bottom: 20, left: 20}}>
