@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRouteByTitle } from "../utilities/app-routes";
-import FormDropdown from "./FormDropdown";
-import SubmitButton from "./SubmitButton";
-import FormInputField from "./FormInputField";
-import AllValuesDefined from "../utilities/AllValuesDefined";
-import FormMultiselectDropdown from "./FormMultiselectDropdown";
-import { Option } from "./FormMultiselectDropdown";
-import AddAthleteDetails from "../utilities/requests/AddAthleteDetails";
-import { getRowingClubNames, getRaceCategories, getRowingCoaches } from "../utilities/requests/GetAthleteDropdownData";
-import NavigatorButton from "./NavigatorButton";
+import { getRouteByTitle } from "../../utilities/appRoutes";
+import FormDropdown from "../formFields/FormDropdown";
+import SubmitButton from "../buttons/SubmitButton";
+import FormInputField from "../formFields/FormInputField";
+import AllValuesDefined from "../../utilities/AllValuesDefined";
+import FormMultiSelectDropdown from "../formFields/FormMultiSelectDropdown";
+import { Option } from "../formFields/FormMultiSelectDropdown";
+import AddAthleteDetails from "../../utilities/requests/AddAthleteDetails";
+import { getRowingClubNames, getRaceCategories, getRowingCoaches } from "../../utilities/requests/GetAthleteDropdownData";
+import NavigatorButton from "../buttons/NavigatorButton";
 
 const AthleteForm = () => {
   const [selectedClubs, setSelectedClubs] = useState<Option[]>([]);
@@ -108,11 +108,11 @@ const AthleteForm = () => {
 
         <FormInputField title="Height (cm)" name="height" type="text" changeHandler={setHeight} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" min={0} />
 
-        <FormMultiselectDropdown title="Clubs" options={clubNameOptions} changeHandler={handleSelectedClubsChange} placeholder="Select clubs..." paddingTop="pt-5"/>
+        <FormMultiSelectDropdown title="Clubs" options={clubNameOptions} changeHandler={handleSelectedClubsChange} placeholder="Select clubs..." paddingTop="pt-5"/>
 
         <FormInputField title="Weight (kg)" name="weight" type="text" changeHandler={setWeight} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" min={0} />
 
-        <FormMultiselectDropdown title="Coaches" options={coachNameOptions} changeHandler={handleSelectedCoachesChange} placeholder="Select coaches..." paddingTop="pt-5"/>
+        <FormMultiSelectDropdown title="Coaches" options={coachNameOptions} changeHandler={handleSelectedCoachesChange} placeholder="Select coaches..." paddingTop="pt-5"/>
 
         <FormInputField title="Wingspan (cm)" name="wingspan" type="text" changeHandler={setWingspan} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" paddingBottom="pb-5" min={0} />
       </div>

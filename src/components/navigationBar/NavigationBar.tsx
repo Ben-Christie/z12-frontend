@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import NavigationBarOption from './NavigationBarOption';
-import { getRouteByTitle, Page } from '../utilities/app-routes';
+import { getRouteByTitle, Page } from '../../utilities/appRoutes';
 
 function NavigationBar() {
   const [centerButtons, setCenterButtons] = useState<Page[]>([]);

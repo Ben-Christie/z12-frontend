@@ -1,14 +1,14 @@
 import LoginRegisterButtons from "./LoginRegisterButtons";
-import FormInputField from "./FormInputField";
-import SubmitButton from "./SubmitButton";
+import FormInputField from "../formFields/FormInputField";
+import SubmitButton from "../buttons/SubmitButton";
 import ForgotPassword from "./ForgotPassword";
-import { getRouteByTitle } from "../utilities/app-routes";
+import { getRouteByTitle } from "../../utilities/appRoutes";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import CreateUserLogin from "../utilities/requests/CreateUserLogin";
-import VerifyUserLogin from "../utilities/requests/VerifyUserLogin";
+import CreateUserLogin from "../../utilities/requests/CreateUserLogin";
+import VerifyUserLogin from "../../utilities/requests/VerifyUserLogin";
 import React, { useState } from "react";
-import AllValuesDefined from "../utilities/AllValuesDefined";
+import AllValuesDefined from "../../utilities/AllValuesDefined";
 
 const LoginForm = () => {
   const location = useLocation();

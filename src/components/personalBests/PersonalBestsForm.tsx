@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRouteByTitle } from "../utilities/app-routes";
-import SubmitButton from "./SubmitButton";
-import AllValuesDefined from "../utilities/AllValuesDefined";
-import TimeInputField from "./TimeInputField";
-import NavigatorButton from "./NavigatorButton";
-import AddPersonalBests from "../utilities/requests/AddPersonalBests";
+import { getRouteByTitle } from "../../utilities/appRoutes";
+import SubmitButton from "../buttons/SubmitButton";
+import AllValuesDefined from "../../utilities/AllValuesDefined";
+import TimeInputField from "../formFields/TimeInputField";
+import NavigatorButton from "../buttons/NavigatorButton";
+import AddPersonalBests from "../../utilities/requests/AddPersonalBests";
 
 const PersonalBestsForm = () => {
   const [pb100, setPb100] = useState('')

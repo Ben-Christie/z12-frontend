@@ -1,4 +1,4 @@
-import CoreDetailsForm from "../components/CoreDetailsForm";
+import CoreDetailsForm from "../components/coreDetails/CoreDetailsForm";
 
 const UserDetailsPage = () => {
   return (

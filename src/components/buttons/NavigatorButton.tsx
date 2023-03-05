@@ -1,17 +1,18 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
-import { getRouteByTitle } from "../utilities/app-routes";
+import { getRouteByTitle } from "../../utilities/appRoutes";
 
 interface Props {
-  title: string;
+  title: string | JSX.Element;
   textColor?: string;
   bgColor?: string;
   hoverBgColor?: string;
+  hoverTextColor?: string;
   buttonWidth?: string;
   navigateTo: string;
 }
 
-const NavigatorButton = ({title, textColor = 'text-white', bgColor = 'bg-black', hoverBgColor = 'hover:bg-orange-400', buttonWidth = 'w-1/4', navigateTo}: Props) => {
+const NavigatorButton = ({title, textColor = 'text-white', bgColor = 'bg-black', hoverBgColor = 'hover:bg-orange-400', buttonWidth = 'w-1/4', navigateTo, hoverTextColor}: Props) => {
   const navigate = useNavigate();
   
   const handleClickEvent = (pageTitle: string) => {
@@ -35,7 +36,8 @@ const NavigatorButton = ({title, textColor = 'text-white', bgColor = 'bg-black',
       "hover:scale-110",
       `${bgColor}`,
       `${textColor}`,
-      `${hoverBgColor}`
+      `${hoverBgColor}`,
+      `${hoverTextColor}`
     )}>
       {title}
     </button>

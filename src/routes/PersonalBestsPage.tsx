@@ -1,4 +1,4 @@
-import PersonalBestsForm from "../components/PersonalBestsForm";
+import PersonalBestsForm from "../components/personalBests/PersonalBestsForm";
 
 const PersonalBestsPage = () => {
   return (

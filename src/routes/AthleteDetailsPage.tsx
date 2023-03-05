@@ -1,4 +1,4 @@
-import AthleteForm from "../components/AthleteForm";
+import AthleteForm from "../components/athleteForm/AthleteForm";
 
 const AthleteDetailsPage = () => {
   return (

@@ -8,7 +8,9 @@ export const selectStyling = {
     outlineColor: state.isFocused ? '#f97316' : 'none',
     borderWidth: '3px',
     '&:hover': {
-      borderColor: '#f97316'
-    }
+      borderColor: '#f97316',
+      cursor: 'pointer'
+    },
+    cursor: 'pointer'
   })
 }

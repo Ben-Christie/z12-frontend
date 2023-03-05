@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Option } from '../../components/FormMultiselectDropdown';
+import { Option } from '../../components/formFields/FormMultiSelectDropdown';
 
 export const getRowingClubNames = async () => {
   try {

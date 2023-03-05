@@ -6,8 +6,8 @@ interface Props {
   paddingTop?: string;
   paddingBottom?: string;
   changeHandler: React.Dispatch<React.SetStateAction<string>>;
-  errorMessage: string;
-  culprit: string;
+  errorMessage?: string;
+  culprit?: string;
 }
 
 const TimeInputField = ({title, paddingBottom, paddingTop, changeHandler, errorMessage, culprit}: Props) => {

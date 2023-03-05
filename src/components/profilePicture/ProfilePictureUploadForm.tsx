@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRouteByTitle } from "../utilities/app-routes";
-import SubmitButton from "./SubmitButton";
-import UploadFileButton from "./UploadFileButton";
-import NavigatorButton from "./NavigatorButton";
-import AllValuesDefined from "../utilities/AllValuesDefined";
-import UploadProfilePicture from "../utilities/requests/UploadProfilePicture";
+import { getRouteByTitle } from "../../utilities/appRoutes";
+import SubmitButton from "../buttons/SubmitButton";
+import UploadFileButton from "../buttons/UploadFileButton";
+import NavigatorButton from "../buttons/NavigatorButton";
+import AllValuesDefined from "../../utilities/AllValuesDefined";
+import UploadProfilePicture from "../../utilities/requests/UploadProfilePicture";
 
 const ProfilePictureUploadForm = () => {
   const [profilePicture, setProfilePicture] = useState<string | null>(null);

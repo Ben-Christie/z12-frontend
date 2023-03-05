@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { useNavigate } from 'react-router';
 
-import { Page } from '../utilities/app-routes';
+import { Page } from '../../utilities/appRoutes';
 
 interface Props {
   page: Page;

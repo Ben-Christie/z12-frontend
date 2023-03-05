@@ -1,4 +1,4 @@
-import ProfilePictureUploadForm from "../components/ProfilePictureUploadForm";
+import ProfilePictureUploadForm from "../components/profilePicture/ProfilePictureUploadForm";
 
 const ProfilePicturePage = () => {
   return (

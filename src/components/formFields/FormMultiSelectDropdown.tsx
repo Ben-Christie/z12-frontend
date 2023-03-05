@@ -1,6 +1,6 @@
 import Select, { ActionMeta, MultiValue } from "react-select";
 import classNames from "classnames";
-import { selectStyling } from "../utilities/SelectStyling";
+import { selectStyling } from "../../utilities/SelectStyling";
 
 export interface Option {
   value: string;
@@ -16,7 +16,7 @@ interface Props {
   changeHandler: (newValue: Option[], actionMeta: ActionMeta<Option>) => void;
 }
 
-const FormMultiselectDropdown = ({paddingTop, paddingBottom, title, options, placeholder, changeHandler}: Props) => {
+const FormMultiSelectDropdown = ({paddingTop, paddingBottom, title, options, placeholder, changeHandler}: Props) => {
 
   const handleChange = (newValue: Option[] | MultiValue<Option>, actionMeta: ActionMeta<Option>) => {
     changeHandler(newValue as Option[], actionMeta);
@@ -36,4 +36,4 @@ const FormMultiselectDropdown = ({paddingTop, paddingBottom, title, options, pla
   );
 }
 
-export default FormMultiselectDropdown;
+export default FormMultiSelectDropdown;

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRouteByTitle } from "../utilities/app-routes";
-import SubmitButton from "./SubmitButton";
-import FormInputField from "./FormInputField";
-import AllValuesDefined from "../utilities/AllValuesDefined";
+import { getRouteByTitle } from "../../utilities/appRoutes";
+import SubmitButton from "../buttons/SubmitButton";
+import FormInputField from "../formFields/FormInputField";
+import AllValuesDefined from "../../utilities/AllValuesDefined";
 import CardExpiryDate from "./CardExpiryDate";
-import Payments from "../utilities/requests/Payments";
+import Payments from "../../utilities/requests/Payments";
 
 
 const PaymentsForm = () => {

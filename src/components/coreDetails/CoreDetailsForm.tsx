@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getRouteByTitle } from "../utilities/app-routes";
-import FormDropdown from "./FormDropdown";
-import DateOfBirthDropdown from "./DateOfBirthDropdown";
-import SubmitButton from "./SubmitButton";
-import FormInputField from "./FormInputField";
-import AddCoreDetails from "../utilities/requests/AddCoreDetails";
-import AllValuesDefined from "../utilities/AllValuesDefined";
-import { Option } from "./FormMultiselectDropdown";
+import { getRouteByTitle } from "../../utilities/appRoutes";
+import FormDropdown from "../formFields/FormDropdown";
+import DateOfBirthDropdown from "../formFields/DateOfBirthDropdown";
+import SubmitButton from "../buttons/SubmitButton";
+import FormInputField from "../formFields/FormInputField";
+import AddCoreDetails from "../../utilities/requests/AddCoreDetails";
+import AllValuesDefined from "../../utilities/AllValuesDefined";
+import { Option } from "../formFields/FormMultiSelectDropdown";
 
 const CoreDetailsForm = () => {
   const [firstName, setFirstName] = useState('');

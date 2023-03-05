@@ -12,10 +12,11 @@ interface Props {
   max?: number;
   paddingTop?: string;
   paddingBottom?: string;
-
+  xPadding?: string;
+  marginLR?: string;
 }
 
-const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom}:Props) => {
+const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR}:Props) => {
   // error identification
   const isEmailError = culprit === 'email' && name === 'email';
   const isPasswordError = culprit === 'password' && name === 'password';
@@ -36,7 +37,7 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, culprit,
   const culpritExists = culprit !== undefined || culprit !== '';
 
   return(
-    <div className={classNames('flex', 'flex-col', 'px-10', paddingTop, paddingBottom)}>
+    <div className={classNames('flex', 'flex-col', `${xPadding}`, paddingTop, paddingBottom, `${marginLR}`)}>
       <div className="flex">
         <label className="text-lg font-bold mb-2 text-orange-400 pr-3">{title}</label>
         {errorExists && <p className="mb-2 text-red-700 font-bold">*{errorMessage}*</p>}

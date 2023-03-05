@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { generateYears, generatePaddedValues } from "./DateOfBirthDropdown";
+import { generateYears, generatePaddedValues } from "../formFields/DateOfBirthDropdown";
 
 interface Props {
   title: string;
