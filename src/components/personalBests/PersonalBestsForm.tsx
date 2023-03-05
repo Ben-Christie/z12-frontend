@@ -42,9 +42,9 @@ const PersonalBestsForm = () => {
       
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
         
-        <TimeInputField paddingTop="pt-5" title="100 metres" changeHandler={setPb100} errorMessage={errorMessage} culprit={culprit} />
+        <TimeInputField title="100 metres" changeHandler={setPb100} errorMessage={errorMessage} culprit={culprit} />
 
-        <TimeInputField paddingTop="pt-5" title="2000 metres" changeHandler={setPb2000} errorMessage={errorMessage} culprit={culprit} />
+        <TimeInputField title="2000 metres" changeHandler={setPb2000} errorMessage={errorMessage} culprit={culprit} />
 
         <TimeInputField paddingTop="pt-5" title="500 metres" changeHandler={setPb500} errorMessage={errorMessage} culprit={culprit} />
 
@@ -56,7 +56,7 @@ const PersonalBestsForm = () => {
       
       </div>
 
-      <div className="flex mt-28 w-35%">
+      <div className="flex mt-10 w-35%">
         <SubmitButton title="Submit" buttonWidth="w-2/5" />
         <NavigatorButton title="Skip" buttonWidth="w-2/5" textColor="text-black" bgColor="bg-white" hoverBgColor="hover:bg-orange-400" navigateTo="Payments" />
       </div>

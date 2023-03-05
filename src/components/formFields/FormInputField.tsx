@@ -14,22 +14,23 @@ interface Props {
   paddingBottom?: string;
   xPadding?: string;
   marginLR?: string;
+  zScore?: string;
 }
 
-const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR}:Props) => {
+const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR, zScore}:Props) => {
   // error identification
   const isEmailError = culprit === 'email' && name === 'email';
   const isPasswordError = culprit === 'password' && name === 'password';
 
-  const isFirstNameError = culprit === 'firstName' && name === 'firstname';
-  const isLastNameError = culprit === 'lastName' && name === 'lastname';
-  const isPhoneNumberError = culprit === 'phoneNumber' && name === 'phonenumber';
+  const isFirstNameError = culprit === 'firstName' && name === 'firstName';
+  const isLastNameError = culprit === 'lastName' && name === 'lastName';
+  const isPhoneNumberError = culprit === 'phoneNumber' && name === 'phoneNumber';
   const isHeightError = culprit === 'height' && name === 'height';
   const isWeightError = culprit === 'weight' && name === 'weight';
   const isWingspanError = culprit === 'wingspan' && name === 'wingspan';
 
   const isCardHolderError = culprit === 'full name' && name === 'cardholder'
-  const isCardNumberError = culprit === 'card number' && name === 'cardnumber'
+  const isCardNumberError = culprit === 'card number' && name === 'cardNumber'
   const isCvvError = culprit === 'cvv' && name === 'cvv'
 
   const errorExists = isEmailError || isPasswordError || isFirstNameError || isLastNameError || isPhoneNumberError || isHeightError || isWeightError || isWingspanError || isCardHolderError || isCardNumberError || isCvvError;
@@ -45,11 +46,12 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, culprit,
       
       <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeHandler(event.currentTarget.value)} min={min} max={max} type={type} name={name} placeholder={placeholder} className={classNames(
         'p-2', 
+        `${zScore}`,
         'rounded-lg', 
         'text-lg',
         'font-bold',
         'focus:outline-none', 
-        'focus:border-orange-500',
+        'focus:border-orange-400',
         'border-2',
         {'focus:border-red-700' : culpritExists && errorExists},
       )} />

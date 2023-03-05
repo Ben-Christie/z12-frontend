@@ -82,7 +82,7 @@ const ProfilePictureUploadForm = () => {
     <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-45% rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">Upload Profile Picture</div>
 
-      <div id="profile-picture-div" className="border-orange-500 border-2 bg-white w-1/3 h-40% mt-10 mb-36 rounded-lg">
+      <div id="profile-picture-div" className="border-orange-400 border-2 bg-white w-1/3 h-40% mt-10 mb-24 rounded-lg">
         {/* display profile picture */}
       </div>
 

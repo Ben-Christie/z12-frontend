@@ -28,7 +28,7 @@ const TableRow = ({gridColumns, textSize = 'text-lg', fontSize, textColor = 'tex
   }
 
   return (
-    <div className={classNames('rounded-lg', 'my-1', 'border-2', 'grid', `${gridColumns}`)}>
+    <div className={classNames('rounded-lg', 'my-1', 'border-2', 'grid', `${gridColumns}`, 'content-center')}>
       {generateRows(getNumberOfColumns(gridColumns), content)}
     </div>
   )

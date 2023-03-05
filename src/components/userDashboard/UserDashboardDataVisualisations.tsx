@@ -15,7 +15,7 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
   
   const generateChartTab = (title: string, marginR?: string) => {
     return (
-      <button type="button" className={classNames('border-2', 'py-2', 'px-4', 'text-lg', 'rounded-lg', 'text-white', 'font-semibold', 'transition-all', 'duration-200', 'ease-in-out', 'transform', 'hover:scale-110', 'hover:bg-orange-400', `${marginR}`, 'active:bg-orange-400')}>{title}
+      <button type="button" className={classNames('border-2', 'py-1', 'px-4', 'text-lg', 'rounded-lg', 'text-white', 'font-semibold', 'transition-all', 'duration-200', 'ease-in-out', 'transform', 'hover:scale-110', 'hover:bg-orange-400', `${marginR}`, 'active:bg-orange-400')}>{title}
       </button>
     )
   }
@@ -23,7 +23,7 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
   const [openSAndCAnalysis, setOpenSAndCAnalysis] = useState<boolean>(false);
   
   return (
-    <div className="rounded-lg p-6 mt-5 mb-5 col-span-8 row-span-3 bg-z12-gray grid grid-rows-6">
+    <div className="rounded-lg p-3 mb-5 col-span-8 row-span-3 bg-z12-gray grid grid-rows-6">
       
       <div className="mb-1 grid grid-cols-12">
         <div className="col-span-11 flex items-center">
@@ -32,7 +32,7 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
           {generateChartTab('S&C Analysis')}
         </div>
 
-        <div className=" text-3xl flex justify-center items-center transition-all duration-200 ease-in-out transform hover:scale-110 hover:text-orange-400 cursor-pointer text-white">
+        <div className="text-3xl flex justify-center items-center transition-all duration-200 ease-in-out transform hover:scale-110 hover:text-orange-400 cursor-pointer text-white">
           <TiPlusOutline onClick={() => setOpenModal(true)} />
         </div>
       </div>

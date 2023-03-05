@@ -55,15 +55,15 @@ const DateOfBirthDropdown = ({title, changeHandler, paddingTop, paddingBottom}: 
       <label className="text-lg font-bold mb-2 text-orange-400">{title}</label>
       <div className="grid grid-cols-3">
         
-        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setDay(event.target.value)} className="p-2.5 rounded-lg text-lg focus:outline-none focus:outline-orange-500 mr-3 text-center">
+        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setDay(event.target.value)} className="p-2.5 rounded-lg text-lg focus:outline-none focus:outline-orange-400 mr-3 text-center">
           {days.map(day => <option key={day} value={day}>{day}</option>)}
         </select>
 
-        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setMonth(event.target.value)} className="p-3 rounded-lg text-lg focus:outline-none focus:outline-orange-500 mr-3 text-center">
+        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setMonth(event.target.value)} className="p-3 rounded-lg text-lg focus:outline-none focus:outline-orange-400 mr-3 text-center">
           {months.map(month => <option key={month} value={month}>{month}</option>)}
         </select>
 
-        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setYear(event.target.value)} className="p-2.5 rounded-lg text-lg focus:outline-none focus:outline-orange-500 text-center">
+        <select onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setYear(event.target.value)} className="p-2.5 rounded-lg text-lg focus:outline-none focus:outline-orange-400 text-center">
           {years.map(year => <option key={year} value={year}>{year}</option>)}
         </select>
       </div>

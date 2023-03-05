@@ -21,6 +21,7 @@ const UpdatePBModalContainer = ({setUnhide}: Props) => {
 
   const [distance, setDistance] = useState<Option>({value: '', label: ''});
   const [newTime, setNewTime] = useState<string>('');
+  const [newSplit, setNewSplit] = useState<string>('');
 
 
   const handleDistanceSelect = (newValue: Option, actionMeta: any) => {
@@ -35,7 +36,10 @@ const UpdatePBModalContainer = ({setUnhide}: Props) => {
       <FormDropdown title="Distance" options={distanceOptions} placeholder="Select distance..." name="distance" changeHandler={handleDistanceSelect} />
       
       {distance.label !== '' && (
-        <TimeInputField title="New Personal Best" changeHandler={setNewTime} paddingTop="pt-5" />
+        <div>
+          <TimeInputField title="New 500m Split" changeHandler={setNewSplit} paddingTop="pt-5" />
+          <TimeInputField title="New Personal Best" changeHandler={setNewTime} paddingTop="pt-5" />
+        </div>
       )}
 
       <div className="flex mt-10 mx-10 mb-5">

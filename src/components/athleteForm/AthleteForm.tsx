@@ -104,20 +104,20 @@ const AthleteForm = () => {
       
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
         
-        <FormDropdown title="Race Category" options={raceCategoryOptions} changeHandler={handleRaceCategorySelect} placeholder="Select race category..." paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} name="racecategory" />
+        <FormDropdown title="Race Category" options={raceCategoryOptions} changeHandler={handleRaceCategorySelect} placeholder="Select race category..." errorMessage={errorMessage} culprit={culprit} name="racecategory" />
 
-        <FormInputField title="Height (cm)" name="height" type="text" changeHandler={setHeight} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" min={0} />
+        <FormInputField title="Height (cm)" name="height" type="text" changeHandler={setHeight} culprit={culprit} errorMessage={errorMessage} min={0} />
 
-        <FormMultiSelectDropdown title="Clubs" options={clubNameOptions} changeHandler={handleSelectedClubsChange} placeholder="Select clubs..." paddingTop="pt-5"/>
+        <FormMultiSelectDropdown title="Clubs" options={clubNameOptions} changeHandler={handleSelectedClubsChange} placeholder="Select clubs..." paddingTop="pt-2" />
 
-        <FormInputField title="Weight (kg)" name="weight" type="text" changeHandler={setWeight} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" min={0} />
+        <FormInputField title="Weight (kg)" name="weight" type="text" changeHandler={setWeight} culprit={culprit} errorMessage={errorMessage} min={0} paddingTop="pt-2" />
 
-        <FormMultiSelectDropdown title="Coaches" options={coachNameOptions} changeHandler={handleSelectedCoachesChange} placeholder="Select coaches..." paddingTop="pt-5"/>
+        <FormMultiSelectDropdown title="Coaches" options={coachNameOptions} changeHandler={handleSelectedCoachesChange} placeholder="Select coaches..." paddingTop="pt-2" />
 
-        <FormInputField title="Wingspan (cm)" name="wingspan" type="text" changeHandler={setWingspan} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" paddingBottom="pb-5" min={0} />
+        <FormInputField title="Wingspan (cm)" name="wingspan" type="text" changeHandler={setWingspan} culprit={culprit} errorMessage={errorMessage} min={0} paddingTop="pt-2" />
       </div>
 
-      <div className="flex mt-28 w-35%">
+      <div className="flex mt-14 w-35%">
         <SubmitButton title="Submit" buttonWidth="w-2/5" />
         <NavigatorButton title="Skip" buttonWidth="w-2/5" textColor="text-black" bgColor="bg-white" hoverBgColor="hover:bg-orange-400" navigateTo="Personal Bests" />
       </div>

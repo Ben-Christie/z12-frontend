@@ -15,7 +15,7 @@ const UserDashboardRaceResults = () => {
   }
 
   return (
-    <div className="rounded-lg p-6 mt-5 mb-5 ml-10 col-span-4 row-span-3 bg-z12-gray grid grid-rows-6">
+    <div className="rounded-lg p-3 mt-5 mb-5 ml-8 col-span-4 row-span-3 bg-z12-gray grid grid-rows-6">
       <div className="mb-1 flex justify-center items-center text-2xl font-bold text-white">My Race Results</div>
 
       <div className="row-span-4 grid grid-rows-4">

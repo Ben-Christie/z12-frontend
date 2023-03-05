@@ -73,17 +73,17 @@ const CoreDetailsForm = () => {
       
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
         
-        <FormInputField title="First Name" name="firstname" type="text" changeHandler={setFirstName} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" />
+        <FormInputField title="First Name" name="firstName" type="text" changeHandler={setFirstName} culprit={culprit} errorMessage={errorMessage} />
 
-        <FormInputField title="Last Name" name="lastname" type="text" changeHandler={setLastName} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" />
+        <FormInputField title="Last Name" name="lastName" type="text" changeHandler={setLastName} culprit={culprit} errorMessage={errorMessage} />
 
-        <DateOfBirthDropdown title="Date of Birth" changeHandler={setDateOfBirth} paddingTop="pt-5" />
+        <DateOfBirthDropdown title="Date of Birth" changeHandler={setDateOfBirth} />
 
-        <FormDropdown title="Gender" options={genderOptions} placeholder="Select gender..." changeHandler={handleGenderSelect} paddingTop="pt-5" name="gender" />
+        <FormDropdown title="Gender" options={genderOptions} placeholder="Select gender..." changeHandler={handleGenderSelect} name="gender" />
 
-        <FormInputField title="Phone Number" name="phonenumber" type="text" changeHandler={setPhoneNumber} culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" paddingBottom="pb-5" />
+        <FormInputField title="Phone Number" name="phoneNumber" type="text" changeHandler={setPhoneNumber} culprit={culprit} errorMessage={errorMessage} paddingBottom="pb-5" />
 
-        <FormDropdown title="Athlete or Coach?" options={userTypeOptions} placeholder="Select user type..." changeHandler={setAthleteOrCoach} paddingTop="pt-5" paddingBottom="pb-5" name="athleteorcoach" />
+        <FormDropdown title="Athlete or Coach?" options={userTypeOptions} placeholder="Select user type..." changeHandler={setAthleteOrCoach} paddingBottom="pb-5" name="athleteOrCoach" />
       </div>
 
       <SubmitButton title="Submit" />

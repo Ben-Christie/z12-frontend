@@ -9,7 +9,7 @@ import { useState, useEffect } from "react"
 
 const UserDashboard = () => {
   const [unhideMetricModal, setUnhideMetricModal] = useState<boolean>(false);
-  const [unhidePBModal, setUnhidePBModal] = useState<boolean>(true);
+  const [unhidePBModal, setUnhidePBModal] = useState<boolean>(false);
 
   useEffect(() => {
 

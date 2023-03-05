@@ -7,7 +7,6 @@ import AllValuesDefined from "../../utilities/AllValuesDefined";
 import CardExpiryDate from "./CardExpiryDate";
 import Payments from "../../utilities/requests/Payments";
 
-
 const PaymentsForm = () => {
   const [cardHolderName, setCardHolderName] = useState('');
   const [cardNumber, setCardNumber] = useState('');
@@ -45,20 +44,19 @@ const PaymentsForm = () => {
     <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-45% rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">Payments</div>
 
-      <div className=" w-3/4 p-3 mt-5 rounded-lg text-lg font-bold focus:outline-none border-orange-500 border-2 bg-black text-white grid grid-cols-2 content-center">
+      <div className=" w-3/4 p-3 mt-5 rounded-lg text-lg font-bold focus:outline-none border-orange-400 border-2 bg-black text-white grid grid-cols-2 content-center">
         <p>Membership Fee:</p>
         <p className="flex justify-end">€10.00</p>
-
       </div>
       
-      <div className="grid grid-cols-2 grid-rows-4 w-full mt-8 px-10 overflow-auto">
+      <div className="grid grid-cols-2 grid-rows-4 w-full mt-2 px-10 overflow-auto">
         
         <div className="col-span-2">
           <FormInputField title="Cardholder's Name" name="cardholder" type="text" changeHandler={setCardHolderName} errorMessage={errorMessage} culprit={culprit} />
         </div>
 
         <div className="col-span-2">
-          <FormInputField title="Card Number" name="cardnumber" type="text" changeHandler={setCardNumber} paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} />
+          <FormInputField title="Card Number" name="cardnumber" type="text" changeHandler={setCardNumber} paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} zScore="z-50" />
         </div>
 
         <CardExpiryDate title="Expiry Date" changeHandler={setExpiryDate} paddingTop="pt-10" errorMessage={errorMessage} culprit={culprit} />
@@ -67,7 +65,7 @@ const PaymentsForm = () => {
 
       </div>
 
-      <div className="flex w-35% mb-11">
+      <div className="flex w-35% mb-5">
         <SubmitButton title="Complete Payment" buttonWidth="w-2/5" />
       </div>
     </form>
