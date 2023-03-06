@@ -14,10 +14,10 @@ interface Props {
   paddingBottom?: string;
   xPadding?: string;
   marginLR?: string;
-  zScore?: string;
+  zValue?: string;
 }
 
-const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR, zScore}:Props) => {
+const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR, zValue}:Props) => {
   // error identification
   const isEmailError = culprit === 'email' && name === 'email';
   const isPasswordError = culprit === 'password' && name === 'password';
@@ -46,7 +46,7 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, culprit,
       
       <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeHandler(event.currentTarget.value)} min={min} max={max} type={type} name={name} placeholder={placeholder} className={classNames(
         'p-2', 
-        `${zScore}`,
+        `${zValue}`,
         'rounded-lg', 
         'text-lg',
         'font-bold',

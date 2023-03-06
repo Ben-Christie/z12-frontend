@@ -1,4 +1,4 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label } from 'recharts';
+import { AreaChart, Area, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Label } from 'recharts';
 import { generateMetricSelectorButton } from '../../utilities/generateMetricSelectorButton';
 
 const data = [

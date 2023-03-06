@@ -56,7 +56,7 @@ const PaymentsForm = () => {
         </div>
 
         <div className="col-span-2">
-          <FormInputField title="Card Number" name="cardnumber" type="text" changeHandler={setCardNumber} paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} zScore="z-50" />
+          <FormInputField title="Card Number" name="cardnumber" type="text" changeHandler={setCardNumber} paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} zValue="z-50" />
         </div>
 
         <CardExpiryDate title="Expiry Date" changeHandler={setExpiryDate} paddingTop="pt-10" errorMessage={errorMessage} culprit={culprit} />
