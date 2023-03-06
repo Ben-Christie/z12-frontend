@@ -97,7 +97,7 @@ const LoginForm = () => {
 
         {location.pathname === '/login' && <ForgotPassword />}
 
-        <div className="border-orange-400 border-2 mt-5 px-10 flex justify-between">
+        <div className="mt-5 px-10 flex justify-between">
           <GoogleButton />
 
           <SubmitButton title={isLogin ? "Login" : "Register"} textColor="text-white" bgColor="bg-black" hoverBgColor="hover:bg-orange-400" buttonWidth="w-2/5" />
