@@ -28,7 +28,7 @@ const Payments = async (cardholderName: string, cardNumber: string, expiryDate: 
 
     return response;
   } catch (error) {
-    console.log('Payments error:', error);
+    console.error('Payments error:', error);
   }
 }
 

@@ -22,7 +22,7 @@ const UploadProfilePicture = async (profile_picture: string): Promise<AxiosRespo
 
     return response;
   } catch (error) {
-    console.log('UploadProfilePicture error:', error);
+    console.error('UploadProfilePicture error:', error);
   }
 }
 

@@ -27,7 +27,7 @@ const AddPersonalBests = async (pb100: string, pb500: string, pb1000: string, pb
 
     return response;
   } catch (error) {
-    console.log('AddPersonalBests error:', error);
+    console.error('AddPersonalBests error:', error);
   }
 }
 

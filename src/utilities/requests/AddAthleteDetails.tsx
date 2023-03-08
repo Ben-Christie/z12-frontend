@@ -28,7 +28,7 @@ const AddAthleteDetails = async (raceCategory: string, clubs: string[], coaches:
 
     return response;
   } catch (error) {
-    console.log('AddAthleteDetails error:', error);
+    console.error('AddAthleteDetails error:', error);
   }
 }
 

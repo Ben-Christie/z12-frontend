@@ -28,7 +28,7 @@ const AddCoreDetails = async (firstName: string, lastName: string, dateOfBirth: 
 
     return response;
   } catch (error) {
-    console.log('AddCoreDetails error:', error);
+    console.error('AddCoreDetails error:', error);
   }
 }
 

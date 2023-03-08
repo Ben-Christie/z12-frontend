@@ -90,8 +90,6 @@ const AthleteForm = () => {
       setErrorMessage(responseData.errorMessage);
       setCulprit(responseData.culprit);
 
-      console.log(responseData.errorMessage);
-
       if(responseData.errorMessage === '' && responseData.culprit === '') {
         navigate(getRouteByTitle('Personal Bests').path);
       }
