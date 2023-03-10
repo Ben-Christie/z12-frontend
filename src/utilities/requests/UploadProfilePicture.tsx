@@ -1,21 +1,20 @@
 import axios, { AxiosResponse } from 'axios';
 
-const UploadProfilePicture = async (profile_picture: string): Promise<AxiosResponse | undefined > => {
+const UploadProfilePicture = async (profile_picture: Blob): Promise<AxiosResponse | undefined > => {
 
-  const data = {
-    profile_picture: profile_picture
-  }
+  const formData = new FormData();
+  formData.append('profile_picture', profile_picture, profile_picture.name);
 
   const token = localStorage.getItem('token');
 
   try {
     const response = await axios.post(
       'http://localhost:8000/add-user-details/upload-profile-picture/', 
-      data, 
+      formData, 
       {
         headers: {
           'Authorization': `Bearer ${token}`,
-          "Content-Type": "application/json"
+          "Content-Type": "multipart/form-data"
         }
       }
     );

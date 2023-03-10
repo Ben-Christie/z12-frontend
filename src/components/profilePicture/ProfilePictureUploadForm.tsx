@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getRouteByTitle } from "../../utilities/appRoutes";
 import SubmitButton from "../buttons/SubmitButton";
@@ -8,7 +8,8 @@ import AllValuesDefined from "../../utilities/AllValuesDefined";
 import UploadProfilePicture from "../../utilities/requests/UploadProfilePicture";
 
 const ProfilePictureUploadForm = () => {
-  const [profilePicture, setProfilePicture] = useState<string | null>(null);
+  const [profilePicture, setProfilePicture] = useState<string>('');
+  const [blobObject, setBlobObject] = useState<Blob>(new Blob());
   const [errorMessage, setErrorMessage] = useState('');
   const [culprit, setCulprit] = useState('');
   
@@ -26,11 +27,12 @@ const ProfilePictureUploadForm = () => {
       // Convert the image data to a Blob object
       const blob = new Blob([imageData], { type: 'image/jpeg' });
 
+      setBlobObject(blob);
+
       // Convert the Blob object to a data URL
       const dataURL = URL.createObjectURL(blob);
 
-      // set the state of the profilePicture to save in the database
-      setProfilePicture(dataURL)
+      setProfilePicture(dataURL);
 
       // Create an <img> element and set its src attribute to the data URL
       const img = document.createElement('img');
@@ -53,13 +55,15 @@ const ProfilePictureUploadForm = () => {
     reader.readAsArrayBuffer(file);
   };
 
+  useEffect(() => {}, [blobObject]);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if(profilePicture !== null) {
-      const response = await UploadProfilePicture(profilePicture)
+      const response = await UploadProfilePicture(blobObject);
 
       if(!AllValuesDefined(response?.data)) {
         console.error('Error: response from component ProfilePictureUploadForm has undefined value');
