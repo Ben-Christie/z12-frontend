@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-const GetUserDetailsDashboard = async (): Promise<AxiosResponse | undefined > => {
+const GetUserDetails = async (): Promise<AxiosResponse | undefined > => {
 
   const token = localStorage.getItem('token');
 
@@ -23,4 +23,4 @@ const GetUserDetailsDashboard = async (): Promise<AxiosResponse | undefined > =>
   }
 }
 
-export default GetUserDetailsDashboard;
+export default GetUserDetails;

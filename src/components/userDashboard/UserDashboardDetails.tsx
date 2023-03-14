@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import GetUserDetailsDashboard from "../../utilities/requests/GetUserDetailsDashboard";
+import GetUserDetails from "../../utilities/requests/GetUserDetails";
 import GetProfilePicture from "../../utilities/requests/GetProfilePicture";
 import AllValuesDefined from "../../utilities/AllValuesDefined";
 import { useEffect, useState } from "react"
@@ -44,7 +44,7 @@ const UserDashboardDetails = () => {
   const [coaches, setCoaches] = useState<string[]>([]);
 
   const getData = async () => {
-    const response = await GetUserDetailsDashboard()
+    const response = await GetUserDetails()
 
     if(!AllValuesDefined(response?.data)) {
       console.error('Error: response from function AddCoreDetails has undefined value');
@@ -73,8 +73,6 @@ const UserDashboardDetails = () => {
 
       const imageData = data.imageData;
       const contentType = data.contentType;
-
-      console.log('imageData', imageData, 'contentType', contentType);
 
       const imgElement = document.getElementById('profile-picture');
 
