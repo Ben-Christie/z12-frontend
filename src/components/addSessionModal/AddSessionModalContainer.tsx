@@ -25,7 +25,6 @@ const AddSessionModalContainer = ({setUnhide}: Props) => {
   // ergometer metric fields
   const [distance, setDistance] = useState<Option>({value: '', label: ''});
   const [strokePerMinute, setStrokePerMinute] = useState<string>('');
-  const [split, setSplit] = useState<string>('');
   const [time, setTime] = useState<string>('');
 
   const handleDistanceSelect = (newValue: Option, actionMeta: any) => {
@@ -45,7 +44,7 @@ const AddSessionModalContainer = ({setUnhide}: Props) => {
   let emptyData = false;
 
   if(trainingCategory.label === 'Ergometer Training') {
-    if(distance.label === '' || strokePerMinute === '' || split === '0:0:0.0' || time === '0:0:0.0') {
+    if(distance.label === '' || strokePerMinute === '' || time === '0:0:0.0') {
       emptyData = true;
     }
   } else if(trainingCategory.label === 'Strength & Conditioning') {
@@ -67,13 +66,13 @@ const AddSessionModalContainer = ({setUnhide}: Props) => {
     let response;
 
     if(trainingCategory.label === 'Ergometer Training') {
-      response = await AddErgData(distance.label, strokePerMinute, split, time);
+      response = await AddErgData(distance.label, strokePerMinute, time);
     } else if(trainingCategory.label === 'Strength & Conditioning') {
       response = await AddSAndCData(exercise.label, reps, weight);
     }
 
     if(!AllValuesDefined(response?.data)) {
-      console.error('Error: response from function AddCoreDetails has undefined value');
+      console.error('Error: response from function AddSessionModalContainer has undefined value');
     } else {
       const responseData = response?.data;
 
@@ -102,8 +101,6 @@ const AddSessionModalContainer = ({setUnhide}: Props) => {
             <FormInputField title="S/M" type="text" name="strokesPerMinute" changeHandler={setStrokePerMinute} xPadding="px-0" marginLR="ml-2.5" errorMessage={errorMessage} culprit={culprit} />
 
           </div>
-
-          <TimeInputField title="500m Split" changeHandler={setSplit} paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} />
 
           <TimeInputField title="Time" changeHandler={setTime} paddingTop="pt-5" errorMessage={errorMessage} culprit={culprit} />
 

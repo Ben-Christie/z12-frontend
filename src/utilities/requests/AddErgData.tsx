@@ -1,11 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 
-const AddErgData = async (distance: string, strokesPerMinute: string, split500m: string, time: string): Promise<AxiosResponse | undefined > => {
+const AddErgData = async (distance: string, strokesPerMinute: string, time: string): Promise<AxiosResponse | undefined > => {
 
   const data = {
     distance: distance,
     strokes_per_minute: strokesPerMinute,
-    split_500m: split500m,
     time: time
   }
 

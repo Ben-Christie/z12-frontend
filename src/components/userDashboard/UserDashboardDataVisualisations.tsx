@@ -2,7 +2,6 @@ import { TiPlusOutline } from "react-icons/ti";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 import SandCAnalysis from "./SandCAnalysisChart";
-import RatingAnalysis from "./RatingAnalysisChart";
 import ErgAnalysis from "./ErgAnalysisChart";
 import { useState } from "react";
 
@@ -17,17 +16,10 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
     switch (chart) {
       case 'erg':
         setOpenErgAnalysis(true);
-        setOpenRatingAnalysis(false);
-        setOpenSAndCAnalysis(false);
-        break;
-      case 'rating':
-        setOpenErgAnalysis(false);
-        setOpenRatingAnalysis(true);
         setOpenSAndCAnalysis(false);
         break;
       case 'sAndC':
         setOpenErgAnalysis(false);
-        setOpenRatingAnalysis(false);
         setOpenSAndCAnalysis(true);
         break;
     }
@@ -41,7 +33,6 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
   }
 
   const [openErgAnalysis, setOpenErgAnalysis] = useState<boolean>(true);
-  const [openRatingAnalysis, setOpenRatingAnalysis] = useState<boolean>(false);
   const [openSAndCAnalysis, setOpenSAndCAnalysis] = useState<boolean>(false);
   
   return (
@@ -50,7 +41,6 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
       <div className="mb-1 grid grid-cols-12">
         <div className="col-span-11 flex items-center">
           {generateChartTab('Erg Analysis', 'erg', 'mr-3')}
-          {generateChartTab('Rating Analysis', 'rating', 'mr-3')}
           {generateChartTab('S&C Analysis', 'sAndC')}
         </div>
 
@@ -60,7 +50,6 @@ const UserDashboardDataVisualisations = ({setOpenModal}: Props) => {
       </div>
 
       {openErgAnalysis && <ErgAnalysis />}
-      {openRatingAnalysis && <RatingAnalysis />}
       {openSAndCAnalysis && <SandCAnalysis />}
       
     </div>

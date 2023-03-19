@@ -22,7 +22,7 @@ const PersonalBestsForm = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const response = await AddPersonalBests(pb100, pb500, pb1000, pb2000, pb6000, pb10000);
+    const response: any = await AddPersonalBests(pb100, pb500, pb1000, pb2000, pb6000, pb10000);
 
     if(!AllValuesDefined(response?.data)) {
       console.error('Error: response from function PersonalBests has undefined value');

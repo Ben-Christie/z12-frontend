@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { getRouteByTitle } from "../../utilities/appRoutes";
 import SubmitButton from "../buttons/SubmitButton";
 import UploadFileButton from "../buttons/UploadFileButton";
-import NavigatorButton from "../buttons/NavigatorButton";
 import AllValuesDefined from "../../utilities/AllValuesDefined";
 import UploadProfilePicture from "../../utilities/requests/UploadProfilePicture";
 
@@ -94,7 +93,6 @@ const ProfilePictureUploadForm = () => {
       <div className="flex items-center w-35% mb-11">
         <UploadFileButton onFileSelect={handleFileSelect} />
         <SubmitButton title="Submit" />
-        <NavigatorButton title="Skip" bgColor="bg-white" textColor="text-black" navigateTo="Athlete Details" />
       </div>
     </form>
   )

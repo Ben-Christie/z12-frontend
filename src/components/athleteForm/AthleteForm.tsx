@@ -83,7 +83,7 @@ const AthleteForm = () => {
     const response = await AddAthleteDetails(raceCategory.label, clubs, coaches, height, weight, wingspan);
 
     if(!AllValuesDefined(response?.data)) {
-      console.error('Error: response from function AddCoreDetails has undefined value');
+      console.error('Error: response from function AddAthleteDetails has undefined value');
     } else {
       const responseData = response?.data;
 

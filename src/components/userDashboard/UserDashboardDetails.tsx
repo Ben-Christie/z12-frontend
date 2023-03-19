@@ -47,7 +47,7 @@ const UserDashboardDetails = () => {
     const response = await GetUserDetails()
 
     if(!AllValuesDefined(response?.data)) {
-      console.error('Error: response from function AddCoreDetails has undefined value');
+      console.error('Error: response from function GetUserDetails has undefined value');
     } else {
       const data = response?.data;
 
