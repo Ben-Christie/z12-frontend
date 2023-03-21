@@ -12,6 +12,7 @@ interface SessionData {
   split_500m: string;
   time: string;
   time_in_seconds: number;
+  intensity_percentage: number;
   date: string;
 }
 
@@ -64,8 +65,7 @@ const ErgAnalysis = () => {
       tooltip: {
         callbacks: {
           label: ((tooltipItem: any) => {
-            console.log(tooltipItem)
-            return `${sessionDataPoints[tooltipItem.dataIndex].time}`
+            return `${sessionDataPoints[tooltipItem.dataIndex].time} (Intensity: ${sessionDataPoints[tooltipItem.dataIndex].intensity_percentage}%)`
           })
         }
       }
@@ -116,7 +116,9 @@ const ErgAnalysis = () => {
         data: sessionDataPoints.map((point) => point.time_in_seconds),
         borderColor: '#fb923c',
         backgroundColor: '#000',
-        tension: 0.2
+        tension: 0.2,
+        pointRadius: 5,
+        pointHoverRadius: 6
       },
     ],
   };

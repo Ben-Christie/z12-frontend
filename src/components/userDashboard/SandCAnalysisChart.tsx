@@ -41,7 +41,6 @@ const SandCAnalysis = () => {
   useEffect(() => {
     setIsLoading(true);
     getData();
-    console.log(sessionDataPoints)
   }, [exerciseSelected]);
 
   useEffect(() => {
@@ -61,7 +60,7 @@ const SandCAnalysis = () => {
       tooltip: {
         callbacks: {
           label: ((tooltipItem: any) => {
-            console.log(tooltipItem)
+            return `${sessionDataPoints[tooltipItem.dataIndex].weight} kg, ${sessionDataPoints[tooltipItem.dataIndex].reps} reps`
           })
         }
       }
@@ -109,6 +108,8 @@ const SandCAnalysis = () => {
       {
         data: createDataArray(),
         backgroundColor: '#fb923c',
+        pointRadius: 6,
+        pointHoverRadius: 7
       },
     ],
   };

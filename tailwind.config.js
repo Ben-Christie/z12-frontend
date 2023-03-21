@@ -16,6 +16,7 @@ module.exports = {
       },
       width: {
         '35%': '35vw',
+        '40%': '40vw',
         '45%': '45vw',
         '55%': '55vw',
         '60%': '60vw',
@@ -27,6 +28,9 @@ module.exports = {
       },
       backgroundImage: {
         z12: 'url(./images/rowing-background.png)',
+      },
+      margin: {
+        0.25: '0.0625rem',
       },
     },
   },

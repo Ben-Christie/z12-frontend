@@ -15,9 +15,10 @@ interface Props {
   xPadding?: string;
   marginLR?: string;
   zValue?: string;
+  initialValue?: string;
 }
 
-const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR, zValue}:Props) => {
+const FormInputField = ({title, placeholder, type, name, changeHandler, culprit, errorMessage, min, max, paddingTop, paddingBottom, xPadding = 'px-10', marginLR, zValue, initialValue}:Props) => {
   // error identification
   const isEmailError = culprit === 'email' && name === 'email';
   const isPasswordError = culprit === 'password' && name === 'password';
@@ -44,7 +45,7 @@ const FormInputField = ({title, placeholder, type, name, changeHandler, culprit,
         {errorExists && <p className="mb-2 text-red-700 font-bold">*{errorMessage}*</p>}
       </div>
       
-      <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeHandler(event.currentTarget.value)} min={min} max={max} type={type} name={name} placeholder={placeholder} className={classNames(
+      <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => changeHandler(event.currentTarget.value)} min={min} max={max} type={type} name={name} value={initialValue} placeholder={placeholder} className={classNames(
         'p-2', 
         `${zValue}`,
         'rounded-lg', 
