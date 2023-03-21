@@ -14,7 +14,7 @@ export const distanceOptions = [
 
 export const exerciseOptions = [
   {value: 'benchPress', label: 'Bench Press'},
-  {value: 'bicepCurl', label: 'Bicep Curl'},
+  {value: 'bicepCurls', label: 'Bicep Curls'},
   {value: 'deadlift', label: 'Deadlift'},
-  {value: 'squat', 'label': 'Squat'}
+  {value: 'squats', 'label': 'Squats'}
 ];

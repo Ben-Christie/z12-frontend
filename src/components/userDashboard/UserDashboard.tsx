@@ -5,11 +5,13 @@ import UserDashboardDataVisualisations from "./UserDashboardDataVisualisations";
 import UserDashboardPersonalBests from "./UserDashboardPersonalBests";
 import AddSessionModal from "../addSessionModal/AddSessionModal";
 import UpdatePBModal from "../updatePersonalBestModal/UpdatePBModal";
+import UpdateDetailsModal from "../updateDetailsModal/UpdateDetailsModal";
 import { useState, useEffect } from "react"
 
 const UserDashboard = () => {
   const [unhideMetricModal, setUnhideMetricModal] = useState<boolean>(false);
   const [unhidePBModal, setUnhidePBModal] = useState<boolean>(false);
+  const [unhideDetailsModal, setUnhideDetailsModal] = useState<boolean>(false);
 
   useEffect(() => {
 
@@ -17,7 +19,7 @@ const UserDashboard = () => {
 
   return (
     <div className="grid grid-cols-12 grid-rows-6 h-90% w-screen">
-      <UserDashboardDetails />
+      <UserDashboardDetails setModalState={setUnhideDetailsModal} />
 
       <UserDashboardRaceResults />
 
@@ -30,6 +32,8 @@ const UserDashboard = () => {
       <AddSessionModal unhide={unhideMetricModal} setUnhide={setUnhideMetricModal} />
 
       <UpdatePBModal unhide={unhidePBModal} setUnhide={setUnhidePBModal} />
+
+      <UpdateDetailsModal unhide={unhideDetailsModal} setUnhide={setUnhideDetailsModal} />
     </div>
   )
 }

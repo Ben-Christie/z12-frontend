@@ -2,6 +2,8 @@ import classNames from "classnames";
 import Select, { ActionMeta, SingleValue } from "react-select";
 import { selectStyling } from "../../utilities/SelectStyling";
 import { Option } from "./FormMultiSelectDropdown";
+import { useState } from "react";
+
 interface Props {
   title: string;
   options: Option[];
@@ -14,17 +16,31 @@ interface Props {
   name: string;
   xPadding?: string;
   marginLR?: string;
+  value?: Option;
+  initialValue?: string;
 }
 
-const FormDropdown = ({title, options, changeHandler, paddingTop, paddingBottom, placeholder, errorMessage, culprit, name, xPadding = 'px-10', marginLR}: Props) => {
+const FormDropdown = ({title, options, changeHandler, paddingTop, paddingBottom, placeholder, errorMessage, culprit, name, xPadding = 'px-10', marginLR, value, initialValue}: Props) => {
+
+  const [selectedValue, setSelectedValue] = useState<Option | null>(null);
 
   const handleChange = (newValue: Option | SingleValue<Option>, actionMeta: ActionMeta<Option>) => {
+    setSelectedValue(newValue as Option);
     changeHandler(newValue as Option, actionMeta);
   }
 
   const isRaceCategoryError = culprit === 'race category' && name === 'racecategory';
 
   const errorExists = isRaceCategoryError;
+
+  let initialSelectedValue = {value: '', label: ''};
+
+  if(initialValue) {
+    initialSelectedValue = {value: initialValue.toLowerCase(), label: initialValue}
+    if (!selectedValue) {
+      setSelectedValue(initialSelectedValue);
+    }
+  }
 
   return (
     <div className={classNames('flex', 'flex-col', `${xPadding}`, `${marginLR}`, paddingTop, paddingBottom, 'font-bold')}>
@@ -34,9 +50,10 @@ const FormDropdown = ({title, options, changeHandler, paddingTop, paddingBottom,
       </div>
       <Select
         onChange={handleChange}
-        placeholder = {placeholder}
+        placeholder={placeholder}
         options={options}
         styles={selectStyling}
+        value={selectedValue}
       />
     </div>
   )
