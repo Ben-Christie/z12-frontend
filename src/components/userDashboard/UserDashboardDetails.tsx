@@ -83,6 +83,11 @@ const UserDashboardDetails = ({setModalState}: Props) => {
 
       if (imgElement instanceof HTMLImageElement) {
         imgElement.src = `data:${contentType};base64,${imageData}`;
+
+        imgElement.style.width = '100%';
+        imgElement.style.height = '100%';
+        imgElement.style.objectFit = 'fill';
+        imgElement.style.borderRadius = '6px';
       }
 
     }
