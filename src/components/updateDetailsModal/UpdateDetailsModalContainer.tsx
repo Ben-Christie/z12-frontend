@@ -176,7 +176,7 @@ const UpdatePBModalContainer = ({setUnhide}: Props) => {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="z-10 bg-gray-400 border-gray-600 border-4 rounded-lg w-40% h-2/5 opacity-100 overflow-y-auto">
+    <form onSubmit={handleSubmit} className="z-10 bg-gray-400 border-gray-600 border-4 rounded-lg w-45% h-2/5 opacity-100 overflow-y-auto">
 
       {isLoading ? 
         <div className="text-white font-bold flex justify-center pt-5 text-xl">

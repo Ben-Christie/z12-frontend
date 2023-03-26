@@ -40,7 +40,7 @@ const ProfilePictureUploadForm = () => {
       // Set the img element's style properties
       img.style.width = '100%';
       img.style.height = '100%';
-      img.style.objectFit = 'cover';
+      img.style.objectFit = 'contain';
       img.style.borderRadius = '6px';
 
       // Append the <img> element to a <div> element

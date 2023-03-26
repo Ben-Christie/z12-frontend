@@ -9,7 +9,6 @@ import CreateUserLogin from "../../utilities/requests/CreateUserLogin";
 import VerifyUserLogin from "../../utilities/requests/VerifyUserLogin";
 import React, { useState } from "react";
 import AllValuesDefined from "../../utilities/AllValuesDefined";
-import GoogleButton from "../buttons/GoogleButton";
 
 const LoginForm = () => {
   const location = useLocation();
@@ -98,8 +97,6 @@ const LoginForm = () => {
         {location.pathname === '/login' && <ForgotPassword />}
 
         <div className="mt-5 px-10 flex justify-between">
-          <GoogleButton />
-
           <SubmitButton title={isLogin ? "Login" : "Register"} textColor="text-white" bgColor="bg-black" hoverBgColor="hover:bg-orange-400" buttonWidth="w-2/5" />
         </div>
       </form>
