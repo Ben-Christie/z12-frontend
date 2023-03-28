@@ -1,7 +1,6 @@
 import LoginRegisterButtons from "./LoginRegisterButtons";
 import FormInputField from "../formFields/FormInputField";
 import SubmitButton from "../buttons/SubmitButton";
-import ForgotPassword from "./ForgotPassword";
 import { getRouteByTitle } from "../../utilities/appRoutes";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -93,8 +92,6 @@ const LoginForm = () => {
         <FormInputField changeHandler={setPassword} type="password" name="password" title="Password" culprit={culprit} errorMessage={errorMessage} paddingTop="pt-5" />
 
         {location.pathname === '/register' && <FormInputField changeHandler={setConfirmPassword} type='password' name='confirm-password' title='Confirm Password' paddingTop="pt-5" />}
-
-        {location.pathname === '/login' && <ForgotPassword />}
 
         <div className="mt-5 px-10 flex justify-between">
           <SubmitButton title={isLogin ? "Login" : "Register"} textColor="text-white" bgColor="bg-black" hoverBgColor="hover:bg-orange-400" buttonWidth="w-2/5" />

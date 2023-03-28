@@ -41,7 +41,7 @@ const PaymentsForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-45% rounded-xl bg-z12-gray opacity-70">
+    <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-85% w-45% rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">Payments</div>
 
       <div className=" w-3/4 p-3 mt-5 rounded-lg text-lg font-bold focus:outline-none border-orange-400 border-2 bg-black text-white grid grid-cols-2 content-center">

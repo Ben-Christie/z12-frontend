@@ -37,7 +37,7 @@ const PersonalBestsForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-65% rounded-xl bg-z12-gray opacity-70">
+    <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-85% w-65% rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">My Personal Bests</div>
       
       <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
