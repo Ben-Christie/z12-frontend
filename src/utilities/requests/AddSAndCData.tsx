@@ -22,7 +22,7 @@ const AddSAndCData = async (exercise: string, reps: string, weight: string): Pro
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/gather-metrics/add-s-and-c-metric/', 
+      'https://z12-backend-production.up.railway.app/gather-metrics/add-s-and-c-metric/', 
       data, 
       {
         headers: {

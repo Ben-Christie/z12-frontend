@@ -9,7 +9,7 @@ const UploadProfilePicture = async (profile_picture: Blob): Promise<AxiosRespons
 
   try {
     const response = await axios.post(
-      'http://localhost:8000/add-user-details/upload-profile-picture/', 
+      'https://z12-backend-production.up.railway.app/add-user-details/upload-profile-picture/', 
       formData, 
       {
         headers: {

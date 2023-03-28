@@ -15,7 +15,7 @@ const AddPersonalBests = async (pb100: string, pb500: string, pb1000: string, pb
 
   try {
     const response = await axios.post(
-      'http://localhost:8000/add-user-details/personal-bests/', 
+      'https://z12-backend-production.up.railway.app/add-user-details/personal-bests/', 
       data, 
       {
         headers: {

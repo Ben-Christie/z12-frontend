@@ -9,7 +9,7 @@ const VerifyUserLogin = async (email: string, password: string): Promise<AxiosRe
 
   try {
     const response = await axios.post(
-      'http://localhost:8000/login-register/verify-credentials/',
+      'https://z12-backend-production.up.railway.app/login-register/verify-credentials/',
       data
     )
 

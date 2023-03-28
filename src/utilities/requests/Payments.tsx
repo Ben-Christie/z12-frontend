@@ -16,7 +16,7 @@ const Payments = async (cardholderName: string, cardNumber: string, expiryDate: 
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/payments/payment-processing/', 
+      'https://z12-backend-production.up.railway.app/payments/payment-processing/', 
       data, 
       {
         headers: {

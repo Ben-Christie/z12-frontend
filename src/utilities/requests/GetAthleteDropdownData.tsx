@@ -3,7 +3,7 @@ import { Option } from '../../components/formFields/FormMultiSelectDropdown';
 
 export const getRowingClubNames = async () => {
   try {
-    const clubNamesArray = await axios.get('http://localhost:8000/get-data/club-names/')
+    const clubNamesArray = await axios.get('https://z12-backend-production.up.railway.app/get-data/club-names/')
     
     const clubNames: Option[] = [];
 
@@ -21,7 +21,7 @@ export const getRowingClubNames = async () => {
 
 export const getRaceCategories = async () => {
   try {
-    const raceCategoriesArray = await axios.get('http://localhost:8000/get-data/race-categories/')
+    const raceCategoriesArray = await axios.get('https://z12-backend-production.up.railway.app/get-data/race-categories/')
 
     const raceCategories: Option[] = [];
 
@@ -39,7 +39,7 @@ export const getRaceCategories = async () => {
 
 export const getRowingCoaches = async () => {
   try {
-    const coachNamesArray = await axios.get('http://localhost:8000/get-data/coach-names/')
+    const coachNamesArray = await axios.get('https://z12-backend-production.up.railway.app/get-data/coach-names/')
     const coachNames: Option[] = [];
 
     for(let i = 0; i < coachNamesArray.data.length; i++) {

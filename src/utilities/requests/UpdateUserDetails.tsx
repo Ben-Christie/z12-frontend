@@ -22,7 +22,7 @@ const UpdateUserDetails = async (firstName: string, lastName: string, dateOfBirt
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/update-info/update-user-details/', 
+      'https://z12-backend-production.up.railway.app/update-info/update-user-details/', 
       data,
       {
         headers: {

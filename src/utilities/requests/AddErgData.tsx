@@ -13,7 +13,7 @@ const AddErgData = async (distance: string, strokesPerMinute: string, time: stri
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/gather-metrics/add-erg-metric/', 
+      'https://z12-backend-production.up.railway.app/gather-metrics/add-erg-metric/', 
       data, 
       {
         headers: {

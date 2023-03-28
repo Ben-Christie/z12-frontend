@@ -7,7 +7,7 @@ const GetUserDetails = async (): Promise<AxiosResponse | undefined > => {
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/populate-dashboard/get-user-details/', 
+      'https://z12-backend-production.up.railway.app/populate-dashboard/get-user-details/', 
       null,
       {
         headers: {

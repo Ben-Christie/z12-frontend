@@ -7,7 +7,7 @@ const GetPBRatings = async (): Promise<AxiosResponse | undefined > => {
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/populate-dashboard/calculate-pb-rating/', 
+      'https://z12-backend-production.up.railway.app/populate-dashboard/calculate-pb-rating/', 
       null,
       {
         headers: {

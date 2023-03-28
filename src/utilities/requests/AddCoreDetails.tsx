@@ -16,7 +16,7 @@ const AddCoreDetails = async (firstName: string, lastName: string, dateOfBirth: 
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/add-user-details/core-details/', 
+      'https://z12-backend-production.up.railway.app/add-user-details/core-details/', 
       data, 
       {
         headers: {

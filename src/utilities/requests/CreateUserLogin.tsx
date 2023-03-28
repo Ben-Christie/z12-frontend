@@ -9,7 +9,7 @@ const CreateUserLogin = async (email: string, password: string, confirmPassword:
 
   try {
     const response = await axios.post(
-      'http://localhost:8000/login-register/create-login/',
+      'https://z12-backend-production.up.railway.app/login-register/create-login/',
       data
     );
 

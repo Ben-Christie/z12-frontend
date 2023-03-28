@@ -16,7 +16,7 @@ const AddAthleteDetails = async (raceCategory: string, clubs: string[], coaches:
   try {
     
     const response = await axios.post(
-      'http://localhost:8000/add-user-details/athlete-details/', 
+      'https://z12-backend-production.up.railway.app/add-user-details/athlete-details/', 
       data, 
       {
         headers: {

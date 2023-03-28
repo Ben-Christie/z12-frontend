@@ -9,7 +9,7 @@ const GetSAndCChartData = async (exercise: string): Promise<AxiosResponse | unde
   try {
     
     const response = await axios.post(
-      `http://localhost:8000/chart-data/populate-s-and-c-analysis-chart/?exercise=${exerciseParam}`, 
+      `https://z12-backend-production.up.railway.app/chart-data/populate-s-and-c-analysis-chart/?exercise=${exerciseParam}`, 
       null,
       {
         headers: {
