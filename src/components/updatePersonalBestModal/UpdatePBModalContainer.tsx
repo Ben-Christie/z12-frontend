@@ -10,9 +10,10 @@ import { getRouteByTitle } from "../../utilities/appRoutes";
 
 interface Props {
   setUnhide: React.Dispatch<React.SetStateAction<boolean>>; 
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const UpdatePBModalContainer = ({setUnhide}: Props) => {
+const UpdatePBModalContainer = ({setUnhide, setRefresh}: Props) => {
   const navigate = useNavigate();
 
   const distanceOptions = [
@@ -52,6 +53,7 @@ const UpdatePBModalContainer = ({setUnhide}: Props) => {
         setUnhide(false);
         resetForm();
         navigate(getRouteByTitle('My Dashboard').path);
+        setRefresh(true);
       }
     }
   }

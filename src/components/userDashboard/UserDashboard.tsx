@@ -15,14 +15,11 @@ const UserDashboard = () => {
   const [refresh, setRefresh] = useState<boolean>(false);
 
   useEffect(() => {
-  }, [unhideMetricModal, unhidePBModal, unhideDetailsModal]);
-
-  useEffect(() => {
-    if(refresh === true) {
+    while(refresh === true) {
       window.location.reload();
       setRefresh(false);
     }
-  }, [refresh]);
+  }, [unhideMetricModal, unhidePBModal, unhideDetailsModal]);
 
   return (
     <div className="grid grid-cols-12 grid-rows-6 h-90% w-screen">
@@ -38,9 +35,9 @@ const UserDashboard = () => {
 
       <AddSessionModal setRefresh={setRefresh} unhide={unhideMetricModal} setUnhide={setUnhideMetricModal} />
 
-      <UpdatePBModal unhide={unhidePBModal} setUnhide={setUnhidePBModal} />
+      <UpdatePBModal setRefresh={setRefresh} unhide={unhidePBModal} setUnhide={setUnhidePBModal} />
 
-      <UpdateDetailsModal unhide={unhideDetailsModal} setUnhide={setUnhideDetailsModal} />
+      <UpdateDetailsModal setRefresh={setRefresh} unhide={unhideDetailsModal} setUnhide={setUnhideDetailsModal} />
     </div>
   )
 }

@@ -98,7 +98,10 @@ const ErgAnalysis = () => {
             const minutes = Math.floor(value / 60);
             const seconds = value % 60;
 
-            return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+            const minutes_string = minutes.toString().padStart(2, '0');
+            const seconds_string = parseFloat(seconds.toString().padStart(2, '0')).toFixed(1);
+
+            return `${minutes_string}:${seconds_string}`
           }
         },
         grid: {

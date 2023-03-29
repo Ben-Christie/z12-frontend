@@ -4,9 +4,10 @@ import classNames from "classnames";
 interface Props {
   unhide: boolean;
   setUnhide: React.Dispatch<React.SetStateAction<boolean>>;
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const UpdateDetailsModal = ({unhide, setUnhide}: Props) => {
+const UpdateDetailsModal = ({unhide, setUnhide, setRefresh}: Props) => {
   return (
     <div className={classNames(
       'fixed', 
@@ -18,7 +19,7 @@ const UpdateDetailsModal = ({unhide, setUnhide}: Props) => {
       {'hidden' : unhide === false}
     )}>
       <div className="absolute inset-0 bg-black opacity-60"></div>
-      <UpdateDetailsModalContainer setUnhide={setUnhide} />
+      <UpdateDetailsModalContainer setUnhide={setUnhide} setRefresh={setRefresh} />
     </div>
   )
 }

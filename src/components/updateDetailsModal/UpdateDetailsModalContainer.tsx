@@ -14,9 +14,10 @@ import UpdateUserDetails from "../../utilities/requests/UpdateUserDetails";
 
 interface Props {
   setUnhide: React.Dispatch<React.SetStateAction<boolean>>; 
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const UpdatePBModalContainer = ({setUnhide}: Props) => {
+const UpdatePBModalContainer = ({setUnhide, setRefresh}: Props) => {
 
   // data for dropdowns
   const genderOptions: Option[] = [
@@ -151,6 +152,7 @@ const UpdatePBModalContainer = ({setUnhide}: Props) => {
       if(responseData.errorMessage === '' && responseData.culprit === '') {
         setUnhide(false);
         navigate(getRouteByTitle('My Dashboard').path);
+        setRefresh(true);
       }
     }
   }
