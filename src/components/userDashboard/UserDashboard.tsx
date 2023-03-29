@@ -12,10 +12,11 @@ const UserDashboard = () => {
   const [unhideMetricModal, setUnhideMetricModal] = useState<boolean>(false);
   const [unhidePBModal, setUnhidePBModal] = useState<boolean>(false);
   const [unhideDetailsModal, setUnhideDetailsModal] = useState<boolean>(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
 
   useEffect(() => {
 
-  }, [unhideMetricModal]);
+  }, [unhideMetricModal, unhidePBModal, unhideDetailsModal]);
 
   return (
     <div className="grid grid-cols-12 grid-rows-6 h-90% w-screen">
