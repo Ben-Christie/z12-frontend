@@ -13,9 +13,10 @@ import { trainingOptions, distanceOptions, exerciseOptions } from "../../utiliti
 
 interface Props {
   setUnhide: React.Dispatch<React.SetStateAction<boolean>>; 
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddSessionModalContainer = ({setUnhide}: Props) => {
+const AddSessionModalContainer = ({setUnhide, setRefresh}: Props) => {
   const [trainingCategory, setTrainingCategory] = useState<Option>({value: '', label: ''});
 
   const handleTrainingSelect = (newValue: Option, actionMeta: any) => {
@@ -83,6 +84,7 @@ const AddSessionModalContainer = ({setUnhide}: Props) => {
         setUnhide(false);
         resetForm();
         navigate(getRouteByTitle('My Dashboard').path);
+        setRefresh(true);
       }
     }
   }
