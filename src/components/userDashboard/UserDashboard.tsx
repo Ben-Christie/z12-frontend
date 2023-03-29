@@ -15,7 +15,7 @@ const UserDashboard = () => {
   const [refresh, setRefresh] = useState<boolean>(false);
 
   useEffect(() => {
-
+    window.location.reload();
   }, [unhideMetricModal, unhidePBModal, unhideDetailsModal]);
 
   return (
