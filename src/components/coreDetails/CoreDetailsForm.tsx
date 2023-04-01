@@ -71,7 +71,7 @@ const CoreDetailsForm = () => {
     <form onSubmit={handleSubmit} className="flex items-center p-2 flex-col h-4/5 w-3/6 rounded-xl bg-z12-gray opacity-70">
       <div className="text-3xl font-bold mt-6 tracking-wide text-white">My Details</div>
       
-      <div className="grid grid-cols-2 grid-rows-3 w-full mt-3 overflow-auto">
+      <div className="grid grid-cols-2 grid-rows-3 w-full mt-3">
         
         <FormInputField title="First Name" name="firstName" type="text" changeHandler={setFirstName} culprit={culprit} errorMessage={errorMessage} />
 
