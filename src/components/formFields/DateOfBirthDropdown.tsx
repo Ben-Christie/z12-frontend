@@ -7,6 +7,9 @@ interface Props {
   paddingTop?: string;
   paddingBottom?: string;
   initialValue?: string;
+  errorMessage?: string;
+  culprit?: string;
+
 }
 
 export const generatePaddedValues = (min: number, max: number) => {
@@ -42,11 +45,14 @@ const days = generatePaddedValues(1, 31);
 const months = generatePaddedValues(1, 12);
 const years = generateYears(currentYear, (currentYear - 100), true);
 
-const DateOfBirthDropdown = ({title, changeHandler, paddingTop, paddingBottom, initialValue}: Props) => {
+const DateOfBirthDropdown = ({title, changeHandler, paddingTop, paddingBottom, initialValue, errorMessage, culprit}: Props) => {
   const [day, setDay] = useState<string>('01');
   const [month, setMonth] = useState<string>('01');
   const [year, setYear] = useState<string>(currentYear.toString());
   const [selectedDate, setSelectedDate] = useState<string>(`${day}/${month}/${year}`);
+
+  const invalidDateError = (errorMessage === 'Invalid date') && (culprit === 'DateOfBirth');
+  console.log(invalidDateError)
 
   const parseInitialDate = () => {
     if(initialValue) {
@@ -73,7 +79,11 @@ const DateOfBirthDropdown = ({title, changeHandler, paddingTop, paddingBottom, i
 
   return (
     <div className={classNames('flex', 'flex-col', 'px-10', paddingTop, paddingBottom, 'font-bold')}>
-      <label className="text-lg font-bold mb-2 text-orange-400">{title}</label>
+      <div className="flex">
+        <label className="text-lg font-bold mb-2 text-orange-400">{title}</label>
+        {invalidDateError && <p className="mb-2 text-red-700 font-bold">*{errorMessage}*</p>}
+      </div>
+      
       <div className="grid grid-cols-3">
         
         <select value={day} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setDay(event.target.value)} className="p-2.5 rounded-lg text-lg focus:outline-none focus:outline-orange-400 mr-3 text-center">

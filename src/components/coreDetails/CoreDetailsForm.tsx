@@ -48,7 +48,7 @@ const CoreDetailsForm = () => {
       setCulprit(responseData.culprit);
       setErrorMessage(responseData.errorMessage);
 
-      const noError = culprit === '' && errorMessage === '';
+      const noError = responseData.culprit === '' && responseData.errorMessage === '';
 
       if(noError && isAthlete) {
         // navigate to /athlete-details
@@ -77,7 +77,7 @@ const CoreDetailsForm = () => {
 
         <FormInputField title="Last Name" name="lastName" type="text" changeHandler={setLastName} culprit={culprit} errorMessage={errorMessage} />
 
-        <DateOfBirthDropdown title="Date of Birth" changeHandler={setDateOfBirth} />
+        <DateOfBirthDropdown title="Date of Birth" changeHandler={setDateOfBirth} culprit={culprit} errorMessage={errorMessage} />
 
         <FormDropdown title="Gender" options={genderOptions} placeholder="Select gender..." changeHandler={handleGenderSelect} name="gender" />
 
