@@ -31,7 +31,6 @@ const UpdateUserDetails = async (firstName: string, lastName: string, dateOfBirt
         }
       }
     );
-
     return response;
   } catch (error) {
     console.error('UpdateUserDetails error:', error);

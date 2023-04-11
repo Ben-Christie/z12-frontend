@@ -15,7 +15,7 @@ const UserDashboard = () => {
   const [refresh, setRefresh] = useState<boolean>(false);
 
   useEffect(() => {
-    while(refresh === true) {
+    if(refresh === true) {
       window.location.reload();
       setRefresh(false);
     }
