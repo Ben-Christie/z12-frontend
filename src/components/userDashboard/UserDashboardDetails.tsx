@@ -101,7 +101,7 @@ const UserDashboardDetails = ({setModalState}: Props) => {
   return (
     <div className="rounded-lg p-3 mt-5 col-span-8 row-span-2 bg-z12-gray grid grid-cols-12 grid-rows-5">
       <div className="rounded-lg border-2 row-span-5 col-span-2 mr-2 overflow-hidden">
-        <img id="profile-picture" alt="profile-picture" />
+        <img id="profile-picture" />
       </div>
 
       <div className="border-2 rounded-lg row-span-3 col-span-10 ml-5 grid grid-cols-6 grid-rows-3 mb-1">
