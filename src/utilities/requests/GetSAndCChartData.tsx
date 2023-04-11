@@ -3,7 +3,6 @@ import axios, { AxiosResponse } from 'axios';
 const GetSAndCChartData = async (exercise: string): Promise<AxiosResponse | undefined > => {
 
   const token = localStorage.getItem('token');
-
   const exerciseParam = exercise.replace(' ', '_').toLowerCase();
 
   try {
