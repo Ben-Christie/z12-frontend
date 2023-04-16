@@ -12,7 +12,7 @@ const UpdatePB = async (distance: string, time: string): Promise<AxiosResponse |
   try {
     
     const response = await axios.post(
-      'https://z12-backend-production.up.railway.app/update-info/update-pb/', 
+      'http://localhost:8000/update-info/update-pb/', 
       data,
       {
         headers: {
