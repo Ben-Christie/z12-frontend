@@ -7,7 +7,7 @@ const GetErgChartData = async (distance: string): Promise<AxiosResponse | undefi
   try {
     
     const response = await axios.post(
-      `https://z12-backend-production.up.railway.app/chart-data/populate-erg-analysis-chart/?distance=${distance}`, 
+      `http://localhost:8000/chart-data/populate-erg-analysis-chart/?distance=${distance}`, 
       null,
       {
         headers: {

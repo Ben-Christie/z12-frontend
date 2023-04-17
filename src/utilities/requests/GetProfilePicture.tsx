@@ -7,7 +7,7 @@ const GetProfilePicture = async (): Promise<AxiosResponse | undefined > => {
   try {
     
     const response = await axios.post(
-      'https://z12-backend-production.up.railway.app/populate-dashboard/get-user-profile-picture/', 
+      'http://localhost:8000/populate-dashboard/get-user-profile-picture/', 
       null,
       {
         headers: {
